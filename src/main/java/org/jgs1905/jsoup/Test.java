@@ -19,6 +19,7 @@ public class Test {
 				JXNode type = s1.selOne("//a/text()");
 				String url3="https:"+url2.asString();
 				demo3.getType(url3,type.asString());
+
 			} catch (Exception e) {
 				continue;
 			}

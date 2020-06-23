@@ -12,6 +12,8 @@ import org.seimicrawler.xpath.JXNode;
 
 /**
  * 爬取一本小说所有内容
+ * @author junki
+ * @date 2020年6月21日
  */
 public class Demo02 {
 	

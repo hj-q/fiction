@@ -22,6 +22,8 @@
 		
 		
 		</p>
+		<hr>
+		${bp}
 		
 	</c:forEach>
 	
