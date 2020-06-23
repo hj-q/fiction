@@ -88,6 +88,13 @@
 			<version>3.10</version>
 		</dependency>
 
+		<!-- commons-fileupload -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.4</version>
+		</dependency>
+
 		<!-- junit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -102,17 +109,69 @@
 			<artifactId>kaptcha</artifactId>
 			<version>2.3.2</version>
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+
+		<!-- fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.71</version>
+		</dependency>
+
+		<!-- ue相关依赖 -->
+		<!-- commons-io -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<!-- commons-codec -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.14</version>
+		</dependency>
+		<!-- json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20190722</version>
+		</dependency>
+		<!-- ueditor -->
+		<dependency>
+			<groupId>com.baidu</groupId>
+			<artifactId>ueditor</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+<!-- https://mvnrepository.com/artifact/cn.wanghaomiao/JsoupXpath -->
+		<dependency>
+			<groupId>cn.wanghaomiao</groupId>
+			<artifactId>JsoupXpath</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+        <!-- junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.7</version>
+		</dependency>
+
+<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
 			<version>1.4.7</version>
 		</dependency>
-		
 
 	</dependencies>
+
 	
+
 	<build>
 		<finalName>fiction</finalName>
 		<plugins>
