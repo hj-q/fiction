@@ -7,18 +7,11 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
-
 import org.jgs1905.entity.Fiction;
-import org.jgs1905.entity.Job;
- import org.jgs1905.entity.Section;
 import org.jgs1905.utils.DataSourceUtil;
 
-import com.alibaba.druid.sql.ast.expr.SQLSequenceExpr.Function;
-
 /**
- * 51job岗位数据操作类
- * @author junki
- * @date 2020年6月13日
+ * 小说数据操作类
  */
 public class FictionDao {
 	

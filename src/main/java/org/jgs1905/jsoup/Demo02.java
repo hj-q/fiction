@@ -1,4 +1,4 @@
-package org.jgs1905.demo;
+package org.jgs1905.jsoup;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,8 +12,6 @@ import org.seimicrawler.xpath.JXNode;
 
 /**
  * 爬取一本小说所有内容
- * @author junki
- * @date 2020年6月21日
  */
 public class Demo02 {
 	

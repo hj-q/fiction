@@ -1,34 +1,23 @@
-package org.jgs1905.demo;
+package org.jgs1905.jsoup;
 
-import java.awt.image.TileObserver;
 import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.RegexFileFilter;
 import org.jgs1905.dao.AuthorDao;
 import org.jgs1905.dao.FictionDao;
 import org.jgs1905.dao.SectionDao;
 import org.jgs1905.entity.Author;
 import org.jgs1905.entity.Fiction;
-import org.jgs1905.entity.Job;
 import org.jgs1905.entity.Section;
-import org.junit.Test;
 import org.seimicrawler.xpath.JXDocument;
 import org.seimicrawler.xpath.JXNode;
 
 /**
  * 爬取一本小说所有内容
- * 
- * @author junki
- * @date 2020年6月21日
  */
 public class Demo3 {
 	static SectionDao sectionDao = new SectionDao();
@@ -40,26 +29,16 @@ public class Demo3 {
 		for (int i = 1; i <= 1; i++) {
 			int pageNum = i;
 			newCachedThreadPool.submit(new Thread(() -> {
-				 
-
-				
 					try {
 						getOne(url,type);
+						System.out.println("------------------------");
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					System.out.println(pageNum);
-					
-					
-			
 			}));
 			continue;
 			}
-
-		
-			
-
 	}
 
 	private static void getOne(String url, String type) throws Exception {
@@ -101,8 +80,6 @@ public class Demo3 {
 				
 				sb.setLength(0);
 				sb.append(name).append("\r\n").append(author).append("\r\n").append(intro);
-
-				
 
 				FileUtils.writeStringToFile(new File("f://qidian/" + name + "-" + author + "/" + ".txt"), sb.toString(),
 						"utf-8");

@@ -5,9 +5,6 @@ import lombok.*;
 /**
  * 
  * 	用户实体类
- * 
- * @author junki
- * @date 2020年6月5日
  */
 @Data
 @NoArgsConstructor

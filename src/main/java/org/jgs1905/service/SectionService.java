@@ -3,9 +3,7 @@ package org.jgs1905.service;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.jgs1905.dao.FictionDao;
 import org.jgs1905.dao.SectionDao;
-import org.jgs1905.entity.Fiction;
 import org.jgs1905.entity.Section;
 
 public class SectionService {

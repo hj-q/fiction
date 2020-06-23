@@ -1,16 +1,12 @@
 package org.jgs1905.entity;
 
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 51job岗位实体
- * @author junki
- * @date 2020年6月13日
+ * 小说实体类
  */
 @Data
 @NoArgsConstructor
@@ -19,22 +15,18 @@ import lombok.NoArgsConstructor;
 public class Fiction {
 	
 	private Long id;
+	
 	private Long author_id;
 	
+	private String intro;//简介
 	
-	// 岗位名称
-	private String intro;
-	private String type;
+	private String type;//类型
 	
-	// 公司名称
 	private String  book_name;
+	
 	private String  author_name;
-	private String  image;
 	
-	// 地址
-	
-	
-	// 省份
+	private String  image;//小说封面图
 	
 	
 }

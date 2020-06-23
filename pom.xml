@@ -188,7 +188,7 @@
 						<contextPath>/fiction</contextPath>
 					</webApp>
 					<!--热部署 -->
-					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<scanIntervalSeconds>5</scanIntervalSeconds>
 				</configuration>
 			</plugin>
 

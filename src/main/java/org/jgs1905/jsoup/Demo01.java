@@ -1,4 +1,4 @@
-package org.jgs1905.demo;
+package org.jgs1905.jsoup;
 
 import java.io.IOException;
 
@@ -27,11 +27,7 @@ import org.junit.Test;
  * 			2.使用选择器，类似jquery
  * 		3.数据修改
  * 		4.html清理（消除不安全的html内容，防止xss攻击）
- * 	
- * 
- * 
- * @author junki
- * @date 2020年6月13日
+ *
  */
 public class Demo01 {
 

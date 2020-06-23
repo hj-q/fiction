@@ -11,21 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang3.StringUtils;
-import org.jgs1905.dao.FictionDao;
 import org.jgs1905.entity.Fiction;
-import org.jgs1905.entity.ResultBean;
 import org.jgs1905.entity.Section;
 import org.jgs1905.service.FictionService;
 import org.jgs1905.service.SectionService;
- import org.junit.Test;
-
-import com.alibaba.fastjson.JSON;
 
 /**
- * 	区划控制器
- * @author junki
- * @date 2020年6月18日
+ * 	小说控制器
  */
 @WebServlet("/fiction")
 public class FictionController extends HttpServlet {
@@ -47,7 +39,7 @@ public class FictionController extends HttpServlet {
 			detail(request, response);
 			break;
 		case "d":
-			d(request, response);
+			content(request, response);
 			break;
 			
 		
@@ -82,11 +74,8 @@ public class FictionController extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		
-		
-		
 	}
+	
 	/**
 	 * 展示每一章节具体内容
 	 * @param request
@@ -94,9 +83,7 @@ public class FictionController extends HttpServlet {
 	 * @throws IOException
 	 * @throws ServletException
 	 */
-	
-	
-	private void d(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	private void content(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String book_name = request.getParameter("id");
 		Long id = Long.valueOf(book_name);
 		Section section= Section.builder().id(id).build();

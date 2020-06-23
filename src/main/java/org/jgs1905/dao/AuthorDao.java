@@ -1,15 +1,10 @@
 package org.jgs1905.dao;
 
 import java.sql.SQLException;
-import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.jgs1905.entity.Author;
-import org.jgs1905.entity.Fiction;
-import org.jgs1905.entity.Job;
-import org.jgs1905.entity.Section;
 import org.jgs1905.utils.DataSourceUtil;
 
 /**
