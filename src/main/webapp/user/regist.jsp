@@ -19,6 +19,7 @@
 			<p>用户名：<input type="text" name="username" value="${ user.username }"></p>
 			<p>密码：<input type="password" name="password"></p>
 			<p>确认密码：<input type="password" name="repassword"></p>
+			<p>邮箱：<input type="email" name="email"></p>
 			<p>
 				所在区域：
 				<select name="province" id="province">

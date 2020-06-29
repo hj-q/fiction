@@ -22,6 +22,7 @@
 			<p><input type="checkbox" name="rememberMe" value="rememberMe" ${ cookie.rememberMe.value eq "rememberMe" ? "checked" : "" }>记住我</p>
 			<p><input type="submit" value="登录"></p>
 			<p><a href="${ bp }/user/regist.jsp">没有账号？立即注册！</a></p>
+			<p><a href="${ bp }/user/forgetPwd.jsp">忘记密码</a></p>
 			
 			<p style="color:red;" id="message"></p>
 		</form>
@@ -46,7 +47,7 @@
 					success: function(result) {
 						console.log(result);
 						if (result.code == 200) {
-							location.href = "${bp}/post?method=list";
+							location.href = "${bp}/fiction?method=list";
 						} else {
 							$('#message').text(result.message);
 							$('#captcha-img').attr('src', $('#captcha-img').attr('src'));

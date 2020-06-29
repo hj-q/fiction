@@ -23,5 +23,7 @@ public class User {
 	private Long region_id;
 	
 	private String photo;
+	private String email;
+
 	
 }

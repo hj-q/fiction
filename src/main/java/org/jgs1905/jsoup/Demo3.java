@@ -7,6 +7,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -20,6 +21,7 @@ import org.jgs1905.entity.Author;
 import org.jgs1905.entity.Fiction;
 import org.jgs1905.entity.Job;
 import org.jgs1905.entity.Section;
+import org.jgs1905.service.FictionService;
 import org.junit.Test;
 import org.seimicrawler.xpath.JXDocument;
 import org.seimicrawler.xpath.JXNode;
@@ -32,7 +34,8 @@ import org.seimicrawler.xpath.JXNode;
  */
 public class Demo3 {
 	static SectionDao sectionDao = new SectionDao();
-	static FictionDao fictionDao = new FictionDao();
+	
+	static FictionService fictionService = new FictionService();
 	static AuthorDao authorDao = new AuthorDao();
 	public  void getType(String url, String type){
 		
@@ -49,7 +52,6 @@ public class Demo3 {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					System.out.println(pageNum);
 					
 					
 			
@@ -81,24 +83,52 @@ public class Demo3 {
 				FileUtils.copyURLToFile(new URL("https:" + cover.asString()),
 						new File("C:/Users/Administrator.USER-20181207NZ/git/fiction/src/main/webapp/upload/fiction_images/" + name + "-" + author + "img.jpg"));
 				
-				String imgae_url="/upload/fiction_images/" + name + "-" + author + "img.jpg";
+				String imgae_url="upload/fiction_images/" + name + "-" + author + "img.jpg";
 				Author author2 = Author.builder().name(author.asString()).build();
 				authorDao.insert(author2);
 				Author author3 = authorDao.selectIdByAuthor_name(author2);
 				Long author_id = author3.getId();
-				
+				int type_id=0;
+				switch (type) {
+				case "玄幻":type_id=1;
+					break;
+				case "奇幻":type_id=2;
+					break;
+				case "武侠":type_id=3;
+					break;
+				case "仙侠":type_id=4;
+					break;
+				case "都市":type_id=5;
+					break;
+				case "军事":type_id=6;
+					break;
+				case "历史":type_id=7;
+					break;
+				case "游戏":type_id=8;
+					break;
+				case "科幻":type_id=9;
+					break;
+				case "悬疑":type_id=10;
+					break;
+				case "其他":type_id=11;
+					break;
+
+				default:
+					break;
+				}
+				Long hits=1L;
 				Fiction fiction=Fiction.builder().intro(intro.asString())
 						.book_name(name.asString())
 						.author_name(author.asString())
 						.author_id(author_id)
-						.type(type)
+						.type_id(type_id)
 						.image(imgae_url)
+						.hits(hits)
 						.build();
-				fictionDao.insert(fiction);
-				Fiction fiction2=fictionDao.selectIdByBook_name(fiction);
-				Long fiction_id=fiction2.getId();
+				fictionService.addFiction(fiction);
+				Long fictionId=fictionService.getIdByBookName(name.asString());
 				String two = getTwo("https:" + name2);
-				getThree(two,fiction_id);
+				getThree(two,fictionId);
 				
 				sb.setLength(0);
 				sb.append(name).append("\r\n").append(author).append("\r\n").append(intro);
@@ -131,7 +161,11 @@ public class Demo3 {
 	private static void getOneChapter(String url, String name, String author,Long fiction_id) throws Exception {
 
 		JXDocument doc = JXDocument.createByUrl(url);
-
+		JXNode timeJxNode = doc.selNOne("//*[@class=\"j_updateTime\"]/text()");
+	      String timDate=timeJxNode.asString();
+	      SimpleDateFormat sdf=new SimpleDateFormat("yyyy.MM.dd HH:mm");
+	      
+	      java.util.Date date=sdf.parse(timDate);
 		// 获取章节标题
 		JXNode titleNode = doc.selNOne("//*[@class=\"j_chapterName\"]/span[1]/text()");
 		// 最后一页
@@ -142,20 +176,21 @@ public class Demo3 {
 		String title = titleNode.asString();
 		title = title.replaceAll("[\\pP\\p{Punct}]", "");
 		// 获取章节内容
-		List<JXNode> contentNodeList = doc.selN("//*[@class=\"read-content j_readContent\"]/p/text()");
+		List<JXNode> contentNodeList = doc.selN("//*[@class=\"read-content j_readContent\"]/p");
 		StringBuilder sb = new StringBuilder();
 		for (JXNode contentNode : contentNodeList) {
-			sb.append(contentNode.asString()).append("\r\n");
+			sb.append(contentNode);
 		}
 		
 		Section job = Section.builder().section_name(title)
 				.content(sb.toString())
 				.fiction_name(name)
 				.fiction_id(fiction_id)
+				.time(date)
 				.build();
 	
 	    sectionDao.insert(job);
-		FileUtils.writeStringToFile(new File("f://qidian/" + name + "-" + author + "/" + title + ".txt"), sb.toString(),
+		FileUtils.writeStringToFile(new File("f://qidian/" + name + "-" + author + "/" + title + ".txt"), contentNodeList.toString(),
 				"utf-8");
 
 		// 获取下一章地址

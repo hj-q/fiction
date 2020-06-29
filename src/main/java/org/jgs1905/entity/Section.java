@@ -1,5 +1,7 @@
 package org.jgs1905.entity;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,6 +25,7 @@ public class Section {
 	// 公司名称
 	private String  section_name;
 	private String  fiction_name;
+	private Date  time;
 	
 	
 	// 地址

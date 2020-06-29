@@ -13,19 +13,35 @@
 <title>帖子列表页</title>
 </head>
 <body>
+<%@ include file="../common/header.jsp" %>
+<%-- <c:forEach begin="1" end="10" step="2" var="i" varStatus="vs">
+				${ i }--${ vs.count }--${ vs.current }<br>
+			</c:forEach> --%>
 		<%-- <c:forEach items="${ names }" var="name" varStatus="vs">
 				${ vs.count }--${ name }<br>
 			</c:forEach> --%>
 	<c:forEach items="${ f}" var="i" varStatus="vs">
 		<p>	${i}
-		<a href="${ bp }/fiction?method=detail&book_name=${ i.book_name }">${ i.book_name }</a>
+			<img src="${i.image}" alt="图片加载失败" title="这是一个头像" width="100px" height="100px">
+		
+		<a href="${ bp }/fiction?method=detail&id=${ i.id }">${ i.book_name }</a>
 		
 		
 		</p>
-		<hr>
-		${bp}
 		
 	</c:forEach>
+	<hr>
+	<hr>
+	<c:forEach items="${ sections }" var="section" varStatus="vs">
+  
+   ${ section.fiction_name }	    ---
+   	<a href="${ bp }/fiction?method=d&id=${ section.id }">${ section.section_name }</a>
+   
+   
+   		--		${ section.time }<br>
+			</c:forEach>
+	
+	<hr>
 	
 	
 </body>

@@ -3,6 +3,9 @@ package org.jgs1905.jsoup;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
+
+import javax.mail.internet.NewsAddress;
 
 import org.apache.commons.io.FileUtils;
 import org.jsoup.Jsoup;
@@ -40,21 +43,8 @@ import org.seimicrawler.xpath.JXDocument;
 public class Demo01 {
 
 	@Test
-	public void getDocByUrl() throws IOException {
-		String url = "https://read.qidian.com/chapter/zmsq12zNSFhrNWkNCb7tfg2/w-ED_jx91jW2uJcMpdsVgA2";
-
-JXDocument doc = JXDocument.createByUrl(url);
-		
-		// 2.获取名称
-		String name = doc.selNOne("//*[@id=\"j_textWrap\"]/div/div/h1/text()").asString();
-		
-		// 3.获取作者
-		String author = doc.selNOne("//*[@id=\"j_textWrap\"]/div/div/h2/a/text()").asString();
-		
-		// 4.获取封面
-		String imgUrl = doc.selNOne("//*[@id=\"j_textWrap\"]/div/div/div[1]/img/@src").asString();
-		FileUtils.copyURLToFile(new URL("https:" + imgUrl), new File("e://qidian/" + name + "-" + author + "/img.jpg"));
-		
+	public void getDocByUrl()  {
+		System.out.println(new Date());
 	}
 	
 	

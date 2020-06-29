@@ -18,8 +18,25 @@
 			</c:forEach> --%>
 			
 	<c:forEach items="${sections}" var="i" varStatus="vs">
+    <p>	 ${i.section_name}</p>
 		<p>	${i.content}</p>
+		<p>	
+	<a id="a" href="${ bp }/fiction?method=next&id=${ i.id }&fiction_id=${ i.fiction_id }">下一章</a>
+		
+		</p>
 	</c:forEach>
+	
+	<script type="text/javascript" src="${ bp }/static/js/jquery-3.5.1.js"></script>
+	<script type="text/javascript">
+	$(function() {
+		let count=0;
+	$('#a').click(function() {
+		
+count++;
+		location.href = "${bp}/fiction?method=hits&count="+count;
+	})
+	})
+	</script>
 	
 </body>
 </html>

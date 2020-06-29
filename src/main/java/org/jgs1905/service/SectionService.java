@@ -25,6 +25,26 @@ private SectionDao sectionDao = new SectionDao();
 
 
 
+	public List<Section> getNext(Section section) throws SQLException {
+		List<Section> list=sectionDao.getNext(section);
+		return list;
+	}
+
+
+
+	public List<Section> getByTime() throws SQLException {
+		List<Section> list=sectionDao.getByTime();
+
+		return list;
+	}
+
+
+
+	
+
+
+
+	
 	
 
 }

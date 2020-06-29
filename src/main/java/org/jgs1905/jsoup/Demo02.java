@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -57,7 +59,12 @@ public class Demo02 {
 	private static void getOneChapter(String url, String name, String author) throws Exception {
 		
 		JXDocument doc = JXDocument.createByUrl(url);
-		
+		JXNode timeJxNode = doc.selNOne("//*[@class=\"j_updateTime\"]/text()");
+      String timDate=timeJxNode.asString();
+      SimpleDateFormat sdf=new SimpleDateFormat("yyyy.MM.dd HH:mm");
+      
+      java.util.Date date=sdf.parse(timDate);
+
 		// 获取章节标题
 		JXNode titleNode = doc.selNOne("//*[@class=\"j_chapterName\"]/span[1]/text()");
 		// 最后一页
@@ -67,10 +74,10 @@ public class Demo02 {
 		}
 		String title = titleNode.asString();
 		// 获取章节内容
-		List<JXNode> contentNodeList = doc.selN("//*[@class=\"read-content j_readContent\"]/p/text()");
+		List<JXNode> contentNodeList = doc.selN("//*[@class=\"read-content j_readContent\"]/p");
 		StringBuilder sb = new StringBuilder();
 		for (JXNode contentNode : contentNodeList) {
-			sb.append(contentNode.asString()).append("\r\n");
+			sb.append(contentNode).append("\r\n");
 		}
 		FileUtils.writeStringToFile(new File("e://qidian/" + name + "-" + author + "/" + title + ".txt"), sb.toString(), "utf-8");
 			

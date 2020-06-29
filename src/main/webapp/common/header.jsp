@@ -36,15 +36,15 @@
 <body>
 	
 	<div id="header">
-		<c:if test='${ !(pageContext.request.requestURL eq "http://localhost/tieba/post/list.jsp") }'>
-			<span><a href="${ bp }/post?method=list">返回主页</a></span>
+		<c:if test='${ !(pageContext.request.requestURL eq "http://localhost/fiction/post/list2.jsp") }'>
+			<span><a href="${ bp }/fiction?method=list">返回主页</a></span>
 		</c:if>
 		<c:if test="${ onlineUser ne null }">
 			<span>
 				<img alt="暂无头像" src="${ onlineUser.photo }" height="40px" style="vertical-align: middle;">
 			</span>
 			<span>${ onlineUser.nickname }，欢迎您！</span>
-			<span id="subPostBtn"><a href="${ bp }/post/add.jsp">我要发帖</a></span>
+			<span id="subPostBtn"><a href="${ bp }/comment?method=detail">我要评论</a></span>
 			<span id="logoutBtn"><a href="${ bp }/user?method=logout">退出登录</a></span>
 		</c:if>
 		<c:if test="${ onlineUser eq null }">
