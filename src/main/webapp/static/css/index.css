@@ -1,0 +1,531 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-color: #ede7da;
+	z-index: -9999;
+}
+#search1,#search2{
+	background-color: transparent;
+	border-color: #DBDBDB;
+}
+#search,.book-shelf{
+	margin-top: 3.125rem;
+}
+.book-shelf{
+	padding-top: 1.375rem;
+	text-align: center;
+	width: 12rem;
+	height: 6rem;
+	border: 0.03125rem solid whitesmoke;
+	font-size: large;
+	border-radius: 1.875rem;
+}
+.book-shelf:hover{
+	background-color: rgba(237,66,89);
+	color:white;
+}
+#typeList{
+	background-image:url(../img/titleback.jpg) ;
+	color: white;
+	font-size: large;
+	margin-left:1.375rem;
+	margin-right: 1.375rem;
+}
+#typeList>li{
+	margin-left:2.8125rem ;
+}
+#box01{
+	background-attachment: scroll;
+	background-clip: initial;
+	background-color: rgb(229, 255, 189);
+	background-image: none;
+	background-origin: initial;
+	background-position-x: 0px;
+	background-position-y: 0px;
+	background-repeat-x: repeat;
+	background-repeat-y: repeat;
+	background-size: initial;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	border-image-slice: initial;
+	border-image-source: initial;
+	border-image-width: initial;
+	border: 3px solid rgb(155, 232, 232);
+	float: left;
+	height: 330px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	padding-bottom: 10px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	width: 695px;
+	margin-left: 7.25rem;
+	
+}
+.book1{
+	float: left;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 0px;
+	padding-top: 10px;
+	width: 335px;
+}
+#box01 .book1 dl dt {
+  border-bottom-color: rgb(166, 211, 232);
+  border-bottom-style: dotted;
+  border-bottom-width: 1px;
+  font-size: 14px;
+  font-weight: 700;
+  height: 25px;
+  line-height: 25px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+#box01 .book1 dl dt span {
+	color: rgb(179, 179, 179);
+	float: right;
+	font-weight: 400;
+}
+#box01 .book1 dl dd{
+	height: 120px;
+	line-height: 20px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 7px;
+	text-indent: 2em;
+}
+#box01 .book1 dl{
+	float: right;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 5px;
+	padding-top: 0px;
+	width: 190px;
+}
+#box01 .book1 .image{
+	float: left;
+	width: 120px;
+}
+#box01 .book1 .image img{
+	background-color: rgb(255, 255, 255);
+	border-bottom-color: rgb(221, 221, 221);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	border-image-slice: initial;
+	border-image-source: initial;
+	border-image-width: initial;
+	border-left-color: rgb(221, 221, 221);
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-right-color: rgb(221, 221, 221);
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-top-color: rgb(221, 221, 221);
+	border-top-style: solid;
+	border-top-width: 1px;
+	padding-bottom: 1px;
+	padding-left: 1px;
+	padding-right: 1px;
+	padding-top: 1px;
+}
+.box02{
+	border:  3px solid rgb(195, 223, 234);
+	background-attachment: initial;
+	background-clip: initial;
+	background-color: rgb(229, 255, 189);
+	background-image: initial;
+	background-origin: initial;
+	background-position-x: initial;
+	background-position-y: initial;
+	background-repeat-x: initial;
+	background-repeat-y: initial;
+	background-size: initial;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	border-image-slice: initial;
+	border-image-source: initial;
+	border-image-width: initial;
+	float: left;
+	width: 265px;
+	margin-left: 0.3125rem;
+}
+.box02 h2{
+	background-color: rgb(225, 236, 237);
+	border-bottom-color: rgb(221, 221, 221);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	font-size: 14px;
+	font-weight: 700;
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 0px;
+	padding-top: 0px;
+}
+.box02 ul{
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+.box02 li{
+	border-bottom-color: rgb(221, 221, 221);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	height: 28px;
+	line-height: 28px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 5px;
+	margin-top: 0.125rem;
+}
+.box02 li span{
+	display: inline-block;
+	float: left;
+}
+.box02 li .s1{
+	width: 40px;
+}
+.box02 li .s2{
+	color: rgb(179, 179, 179);
+}
+.box02 li .s3{
+	width: 30px;
+}
+.box02 li .s4{
+	color: rgb(179, 179, 179);
+	width: 50px;
+}
+.box02 li .s5{
+	float: right;
+	text-align: right;
+}
+.box02 li a{
+		color: rgb(111, 120, 167);
+}
+.box03 h2{
+	font-size: 1.875rem;
+	text-align: center;	
+}
+.box04 {
+	border: 3px solid rgb(166, 211, 232);
+	background-attachment: initial;
+	background-clip: initial;
+	background-color: rgb(229, 255, 189);
+	background-image: initial;
+	background-origin: initial;
+	background-size: initial;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	border-image-slice: initial;
+	border-image-source: initial;
+	border-image-width: initial;
+	margin-bottom: 10px;
+	margin-left: 7rem;
+	margin-right: 6.25rem;
+	margin-top: 10px;
+	padding-bottom: 1px;
+	padding-left: 1px;
+	padding-right: 1px;
+	padding-top: 1px;
+	width: 968px;
+}
+.box04 .content{
+	border-right-color: rgb(166, 211, 232);
+	border-right-style: dotted;
+	border-right-width: 1px;
+	float: left clear;
+	padding-bottom: 0px;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 0px;
+	width: 315px;
+	display: inline-block;
+}
+.box04 .content h2{
+	border-bottom-color: rgb(166, 211, 232);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	font-size: 14px;
+	font-weight: bold;
+	height: 25px;
+	line-height: 25px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	padding-left: 5px;
+}
+.box04 .content .image{
+	float: left;
+	padding-bottom: 0px;
+	padding-left: 5px;
+	padding-right: 0px;
+	padding-top: 10px;
+	width: 71px;
+}
+.box04 .content .image img{
+	border: 1px solid rgb(221, 221, 221);
+	background-color: white;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	border-image-slice: initial;
+	border-image-source: initial;
+	border-image-width: initial;
+	height: 82px;
+	padding-bottom: 1px;
+	padding-left: 1px;
+	padding-right: 1px;
+	padding-top: 1px;
+	width: 67px;
+}
+.box04 .content dl{
+	float: right;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 10px;
+	width: 230px;
+}
+.box04 .content dl dt{
+	font-weight: bold;
+	height: 25px;
+	line-height: 25px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+.box04 .content dl dd{
+	height: 60px;
+	line-height: 20px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+.clear{
+	clear: both;
+}
+.box04 .content ul{
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 10px;
+}
+.box04 .content ul li{
+	color: rgb(179, 179, 179);
+	float: left clear;
+	font-size: 12px;
+	height: 20px;
+	line-height: 20px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	width: 155px;
+}
+.box04 .content ul li{
+	font-size: 13px;
+}
+.box05{
+	margin-bottom: auto;
+	margin-left: 7rem;
+	margin-right: auto;
+	margin-top: auto;
+}
+.box05 .left{
+	border: 3px solid rgb(136, 198, 229);
+	background-attachment: initial;
+	background-clip: initial;
+	background-color: rgb(207,232,200);
+	background-image: initial;
+	background-origin: initial;
+	background-position-x: initial;
+	background-position-y: initial;
+	background-repeat-x: initial;
+	background-repeat-y: initial;
+	background-size: initial;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	border-image-slice: initial;
+	border-image-source: initial;
+	border-image-width: initial;
+	float: left;
+	width: 695px;
+}
+.box05 .left ul{
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+.box05 .left li{
+	border-bottom-color: rgb(221, 221, 221);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	height: 25px;
+	line-height: 25px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 5px;
+}
+.box05 .left li span {
+	display: inline-block;
+	float: left;
+}
+
+.box05 .left li .s1 {
+	width: 75px;
+}
+
+.box05 .left li .s2 {
+	width: 165px;
+}
+
+.box05 .left li .s3 {
+	width: 300px;
+}
+
+.box05 .left li .s4 {
+	color: rgb(179, 179, 179);
+	text-align: right;
+	width: 90px;
+}
+
+.box05 .left li .s5 {
+	color: rgb(179, 179, 179);
+	float: right;
+	text-align: right;
+}
+
+.box05 .left li a {
+	color: rgb(111, 120, 167);
+}
+.box05 h2{
+	background-color: rgb(166, 211, 232);
+	border-bottom-color: rgb(221, 221, 221);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	font-size: 14px;
+	font-weight: bold;
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 0px;
+	padding-top: 0px;
+}
+.box05 .right {
+	background-attachment: initial;
+	background-clip: initial;
+	background-color: rgb(225, 236, 237);
+	background-image: initial;
+	background-origin: initial;
+	background-position-x: initial;
+	background-position-y: initial;
+	background-repeat-x: initial;
+	background-repeat-y: initial;
+	background-size: initial;
+	border-bottom-color: rgb(136, 198, 229);
+	border-bottom-style: solid;
+	border-bottom-width: 3px;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	border-image-slice: initial;
+	border-image-source: initial;
+	border-image-width: initial;
+	border-left-color: rgb(136, 198, 229);
+	border-left-style: solid;
+	border-left-width: 3px;
+	border-right-color: rgb(136, 198, 229);
+	border-right-style: solid;
+	border-right-width: 3px;
+	border-top-color: rgb(136, 198, 229);
+	border-top-style: solid;
+	border-top-width: 3px;
+	float: left;
+	margin-left: 0.625rem;
+	width: 265px;
+}
+
+.box05 .right ul {
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+
+.box05 .right li {
+	border-bottom-color: rgb(221, 221, 221);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	height: 25px;
+	line-height: 25px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 5px;
+}
+
+.box05 .right li span {
+	display: inline-block;
+	float: left;
+}
+
+.box05 .right li .s1 {
+	width: 40px;
+}
+
+.box05 .right li .s2 {
+	color: rgb(179, 179, 179);
+}
+
+.box05 .right li .s3 {
+	width: 30px;
+}
+
+.box05 .right li .s4 {
+	color: rgb(179, 179, 179);
+	width: 50px;
+}
+
+.box05 .right li .s5 {
+	float: right;
+	text-align: right;
+}
+
+.box05 .right li a {
+	color: rgb(111, 120, 167);
+} 
+.foot_link{
+	border-bottom: 2px solid #88C6E5;
+	height: 25px;
+	line-height: 25px;
+	overflow: hidden;
+	width: 92%;
+	margin: 5px auto;
+}
