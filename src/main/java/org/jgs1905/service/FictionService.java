@@ -69,6 +69,10 @@ public class FictionService {
     public List<Fiction> getNewFictions() throws SQLException {
         return fictionDao.getNewFiction();
     }
+
+    public List<Fiction> getList(int typeId) throws SQLException {
+        return fictionDao.getList(typeId);
+    }
 }
 
 

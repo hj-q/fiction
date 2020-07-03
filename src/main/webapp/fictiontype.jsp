@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
@@ -18,7 +19,7 @@
     <div class="container">
         <div class="logo">
             <a href="">
-                天天${type}
+                天天${type.name}
             </a>
         </div>
         <div class="search">
@@ -34,93 +35,32 @@
     <div class="xhleft">
         <div class="left-title">本周强推</div>
         <ul class="nav">
-            <li><a href="">我真不想当仙帝</a><span>北冰洋加糖</span></li>
-            <li><a href="">我真不想当仙帝</a><span>北冰洋加糖</span></li>
-            <li><a href="">我真不想当仙帝</a><span>北冰洋加糖</span></li>
-            <li><a href="">我真不想当仙帝</a><span>北冰洋加糖</span></li>
-            <li><a href="">我真不想当仙帝</a><span>北冰洋加糖</span></li>
-            <li><a href="">我真不想当仙帝</a><span>北冰洋加糖</span></li>
-            <li><a href="">我真不想当仙帝</a><span>北冰洋加糖</span></li>
-            <li><a href="">我真不想当仙帝</a><span>北冰洋加糖</span></li>
-            <li><a href="">我真不想当仙帝</a><span>北冰洋加糖</span></li>
-            <li><a href="">我真不想当仙帝</a><span>北冰洋加糖</span></li>
-            <li><a href="">我真不想当仙帝</a><span>北冰洋加糖</span></li>
+            <c:forEach items="${fictions}" var="fiction" end="10" varStatus="vs">
+                <li><a href="">${fiction.book_name}</a><span>${fiction.author_name}</span></li>
+            </c:forEach>
+
         </ul>
     </div>
     <div class="xhcenter">
         <ul class="nav nav-tabs">
-            <li>
-                <div class="imgbox ">
-                    <a href="#" alt="伏天氏"><img src="static/img/951s.jpg" height="130" alt="伏天氏"/></a>
+            <c:forEach items="${fictions}" var="fiction" begin="5" end="9" varStatus="vs">
+                <li>
+                    <div class="imgbox ">
+                        <a href="#" alt="${fiction.book_name}"><img src="${fiction.image}" height="130" alt="${fiction.book_name}"/></a>
 
-                </div>
-                <dl>
-                    <dt>
-                        <a href="#">伏天氏</a>
-                    </dt>
-                    <dd>
-                        东方神州，有人皇立道统，有圣贤宗门传道，有诸侯雄踞一方王国，诸强林立，神州动乱千万载，执此之时，一代天骄叶青帝及东凰大帝横空出世，斩人皇，驭圣贤，诸侯臣服，东方神州一统！
-                        然，叶青帝忽然暴毙，世间雕像尽皆被毁，于世间除名，沦为禁忌；从此...
-                    </dd>
-                </dl>
+                    </div>
+                    <dl>
+                        <dt>
+                            <a href="#">${fiction.book_name}</a>
+                        </dt>
+                        <dd>
+                            ${fiction.intro}
+                        </dd>
+                    </dl>
 
-            </li>
-            <li>
-                <div class="imgbox">
-                    <a href="#" alt="伏天氏"><img src="static/img/951s.jpg" height="130" alt="伏天氏"/></a>
-                </div>
-                <dl>
-                    <dt>
-                        <a href="#">伏天氏</a>
-                    </dt>
-                    <dd>
-                        东方神州，有人皇立道统，有圣贤宗门传道，有诸侯雄踞一方王国，诸强林立，神州动乱千万载，执此之时，一代天骄叶青帝及东凰大帝横空出世，斩人皇，驭圣贤，诸侯臣服，东方神州一统！
-                        然，叶青帝忽然暴毙，世间雕像尽皆被毁，于世间除名，沦为禁忌；从此...
-                    </dd>
-                </dl>
-            </li>
-            <li>
-                <div class="imgbox">
-                    <a href="#" alt="伏天氏"><img src="static/img/951s.jpg" height="130" alt="伏天氏"/></a>
-                </div>
-                <dl>
-                    <dt>
-                        <a href="#">伏天氏</a>
-                    </dt>
-                    <dd>
-                        东方神州，有人皇立道统，有圣贤宗门传道，有诸侯雄踞一方王国，诸强林立，神州动乱千万载，执此之时，一代天骄叶青帝及东凰大帝横空出世，斩人皇，驭圣贤，诸侯臣服，东方神州一统！
-                        然，叶青帝忽然暴毙，世间雕像尽皆被毁，于世间除名，沦为禁忌；从此...
-                    </dd>
-                </dl>
-            </li>
-            <li>
-                <div class="imgbox">
-                    <a href="#" alt="伏天氏"><img src="static/img/951s.jpg" height="130" alt="伏天氏"/></a>
-                </div>
-                <dl>
-                    <dt>
-                        <a href="#">伏天氏</a>
-                    </dt>
-                    <dd>
-                        东方神州，有人皇立道统，有圣贤宗门传道，有诸侯雄踞一方王国，诸强林立，神州动乱千万载，执此之时，一代天骄叶青帝及东凰大帝横空出世，斩人皇，驭圣贤，诸侯臣服，东方神州一统！
-                        然，叶青帝忽然暴毙，世间雕像尽皆被毁，于世间除名，沦为禁忌；从此...
-                    </dd>
-                </dl>
-            </li>
-            <li>
-                <div class="imgbox">
-                    <a href="#" alt="伏天氏"><img src="static/img/951s.jpg" height="130" alt="伏天氏"/></a>
-                </div>
-                <dl>
-                    <dt>
-                        <a href="#">伏天氏</a>
-                    </dt>
-                    <dd>
-                        东方神州，有人皇立道统，有圣贤宗门传道，有诸侯雄踞一方王国，诸强林立，神州动乱千万载，执此之时，一代天骄叶青帝及东凰大帝横空出世，斩人皇，驭圣贤，诸侯臣服，东方神州一统！
-                        然，叶青帝忽然暴毙，世间雕像尽皆被毁，于世间除名，沦为禁忌；从此...
-                    </dd>
-                </dl>
-            </li>
+                </li>
+
+            </c:forEach>
         </ul>
     </div>
     <div class="xhright">
@@ -128,17 +68,10 @@
             玄幻热度排行榜
         </div>
         <ul class="nav">
-            <li><a href="">三寸人间</a><span>耳根</span></li>
-            <li><a href="">三寸人间</a><span>耳根</span></li>
-            <li><a href="">三寸人间</a><span>耳根</span></li>
-            <li><a href="">三寸人间</a><span>耳根</span></li>
-            <li><a href="">三寸人间</a><span>耳根</span></li>
-            <li><a href="">三寸人间</a><span>耳根</span></li>
-            <li><a href="">三寸人间</a><span>耳根</span></li>
-            <li><a href="">三寸人间</a><span>耳根</span></li>
-            <li><a href="">三寸人间</a><span>耳根</span></li>
-            <li><a href="">三寸人间</a><span>耳根</span></li>
-            <li><a href="">三寸人间</a><span>耳根</span></li>
+           <c:forEach items="${fictionList}" var="fiction" end="10" varStatus="vs">
+               <li><a href="">${fiction.book_name}</a><span>${fiction.author_name}</span></li>
+           </c:forEach>
+
         </ul>
     </div>
     <div class="container">

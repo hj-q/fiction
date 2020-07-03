@@ -60,7 +60,8 @@
         <ul class="nav nav-pills" id="typeList">
             <li class="col-1"><a id="shouye" href="javascript:location.reload();">首页</a></li>
             <c:forEach items="${typeList}" var="type" varStatus="status">
-                <li class="col-1"><a href="fictionType?type=${type.name}">${type.name}</a></li>
+
+                <li class="col-1"><a href="${bp}/type?typeId=${type.id}" target="_blank">${type.name}</a></li>
             </c:forEach>
         </ul>
     </div>
@@ -203,23 +204,10 @@
 
 <script>
     $(function () {
-        $("#typeList li a").click(function (e) {
-            e.preventDefault();
-            $(this).tab('show');
-            /*当前标签下的a标签*/
-            var obj = $(this).children("a");
-            /*获取第一个a标签，进行跳转*/
-            window.location.href = $(obj[0]).attr("href");
-
-        });
         $(".book-shelf").click(function () {
             console.log("跳了")
             location = "#";
         });
-        $("#shouye").click(function () {
-            window.location.href = "typeServlet?method=shouye";
-        })
-
 
     });
 </script>

@@ -150,4 +150,11 @@ public class FictionDao {
 		List<Fiction> newFiction = qr.query(sql, new BeanListHandler<>(Fiction.class));
 		return newFiction;
 	}
+
+	public List<Fiction> getList(int typeId) throws SQLException {
+		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
+		String sql = "SELECT fiction.* FROM fiction WHERE fiction.type_id =? ORDER BY fiction.hits";
+		List<Fiction> fictions = qr.query(sql, new BeanListHandler<>(Fiction.class),typeId);
+		return fictions;
+	}
 }

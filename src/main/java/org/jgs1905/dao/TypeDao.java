@@ -57,4 +57,11 @@ public class TypeDao {
 
         return typeList;
     }
+
+    public Type getTypeId(int id) throws SQLException {
+        QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
+        String sql ="SELECT type.* FROM type WHERE id = ?";
+        Type type = qr.query(sql,new BeanHandler<>(Type.class),id);
+        return type;
+    }
 }
