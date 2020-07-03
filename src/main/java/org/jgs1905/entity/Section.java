@@ -18,20 +18,15 @@ public class Section {
 	
 	private Long id;
 	private Long fiction_id;
-	
-	// 岗位名称
+
 	private String content;
-	
-	// 公司名称
+
+	private String author_name;
+	private String name;//小说类型名
+
 	private String  section_name;
 	private String  fiction_name;
 	private Date  time;
 	
-	
-	// 地址
-	
-	
-	// 省份
-	
-	
+
 }

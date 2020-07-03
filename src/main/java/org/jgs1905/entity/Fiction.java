@@ -26,7 +26,7 @@ public class Fiction {
 	private int type_id;//类型
 	@Excel(name = "书名")
 	private String  book_name;
-	private String  name;
+	private String  name;//类型名
 	@Excel(name = "作者")
 	private String  author_name;
 	private Long  hits;

@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * 小说实体类
  */
@@ -16,8 +18,7 @@ public class Type {
 	
 	private int id;
 	private int hits;
-	private String  name;//小说封面图
-	
-	
-	
+	private String  name;//类别名
+
+	List<Fiction> fictionList;
 }

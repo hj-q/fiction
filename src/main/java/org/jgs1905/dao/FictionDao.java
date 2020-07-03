@@ -10,6 +10,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.apache.commons.lang3.StringUtils;
 import org.jgs1905.entity.Fiction;
+import org.jgs1905.entity.Type;
 import org.jgs1905.utils.DataSourceUtil;
 
 /**
@@ -114,6 +115,39 @@ public class FictionDao {
 		List<Fiction> result = qr.query(sbSql.toString(), new BeanListHandler<>(Fiction.class), params.toArray());
 		return result;
 	}
-	
-	
+
+	/**
+	 * 获取点击数为前四的四本小说
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<Fiction> getFourList() throws SQLException {
+		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
+		String sql = "SELECT * FROM fiction ORDER BY fiction.hits DESC LIMIT 0,4";
+		List<Fiction> fictionList = qr.query(sql, new BeanListHandler<>(Fiction.class));
+		return fictionList;
+	}
+
+	public List<Fiction> findQiangTui() throws SQLException {
+		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
+		String sql = "select fiction.*,type.name from fiction \n" +
+				"INNER JOIN type on fiction.type_id=type.id ORDER BY hits DESC LIMIT 4,6";
+		List<Fiction> qiangTUi = qr.query(sql, new BeanListHandler<>(Fiction.class));
+		return qiangTUi;
+	}
+
+	public List<Fiction> fictionList(int type_id) throws SQLException {
+		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
+		String sql = "SELECT fiction.* FROM fiction WHERE fiction.type_id =? ORDER BY fiction.hits DESC LIMIT 0,13";
+		List<Fiction> fictions = qr.query(sql, new BeanListHandler<>(Fiction.class),type_id);
+		return fictions;
+	}
+
+	public List<Fiction> getNewFiction() throws SQLException {
+		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
+		String sql = "select fiction.*,type.name from fiction \n" +
+				"INNER JOIN type on fiction.type_id=type.id ORDER BY hits LIMIT 0,30";
+		List<Fiction> newFiction = qr.query(sql, new BeanListHandler<>(Fiction.class));
+		return newFiction;
+	}
 }

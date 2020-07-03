@@ -21,7 +21,7 @@ body{
 	border-radius: 1.875rem;
 }
 .book-shelf:hover{
-	background-color: rgba(237,66,89);
+	background-color: rgb(237,66,89);
 	color:white;
 }
 #typeList{
@@ -61,7 +61,7 @@ body{
 	padding-top: 0px;
 	width: 695px;
 	margin-left: 7.25rem;
-	
+
 }
 .book1{
 	float: left;
@@ -72,15 +72,15 @@ body{
 	width: 335px;
 }
 #box01 .book1 dl dt {
-  border-bottom-color: rgb(166, 211, 232);
-  border-bottom-style: dotted;
-  border-bottom-width: 1px;
-  font-size: 14px;
-  font-weight: 700;
-  height: 25px;
-  line-height: 25px;
-  overflow-x: hidden;
-  overflow-y: hidden;
+	border-bottom-color: rgb(166, 211, 232);
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+	font-size: 14px;
+	font-weight: 700;
+	height: 25px;
+	line-height: 25px;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 #box01 .book1 dl dt span {
 	color: rgb(179, 179, 179);
@@ -217,11 +217,11 @@ body{
 	text-align: right;
 }
 .box02 li a{
-		color: rgb(111, 120, 167);
+	color: rgb(111, 120, 167);
 }
 .box03 h2{
 	font-size: 1.875rem;
-	text-align: center;	
+	text-align: center;
 }
 .box04 {
 	border: 3px solid rgb(166, 211, 232);
@@ -328,7 +328,7 @@ body{
 	padding-top: 10px;
 }
 .box04 .content ul li{
-	color: rgb(179, 179, 179);
+	color: rgb(135, 167, 231);
 	float: left clear;
 	font-size: 12px;
 	height: 20px;
@@ -520,7 +520,7 @@ body{
 
 .box05 .right li a {
 	color: rgb(111, 120, 167);
-} 
+}
 .foot_link{
 	border-bottom: 2px solid #88C6E5;
 	height: 25px;

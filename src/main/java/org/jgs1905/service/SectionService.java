@@ -13,12 +13,12 @@ private SectionDao sectionDao = new SectionDao();
 
 	/**
 	 * 
-	 * @param id
+	 * @param section
 	 * @return
 	 * @throws SQLException 
 	 */
-	public List<Section> getById(Section function) throws SQLException {
-		List<Section> list=sectionDao.findList(function);
+	public List<Section> getById(Section section) throws SQLException {
+		List<Section> list=sectionDao.findList(section);
 		
 		return  list;
 	}
@@ -39,12 +39,8 @@ private SectionDao sectionDao = new SectionDao();
 	}
 
 
+    public List<Section> getNewSection() throws SQLException {
 
-	
-
-
-
-	
-	
-
+		return  sectionDao.getNewSection();
+	}
 }

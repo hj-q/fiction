@@ -55,7 +55,7 @@ public class FictionController extends HttpServlet {
 		case "detail":
 			detail(request, response);
 			break;
-		case "d":
+		case "content":
 			content(request, response);
 			break;
 		case "next":
@@ -113,10 +113,8 @@ public class FictionController extends HttpServlet {
 				try {
 					request.getRequestDispatcher("/post/list.jsp").forward(request, response);
 				} catch (ServletException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 						
@@ -130,7 +128,6 @@ public class FictionController extends HttpServlet {
 			try {
 				FictionService.hits(hiFiction);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		
@@ -265,28 +262,31 @@ public class FictionController extends HttpServlet {
 		}
 	}
 
+	/**
+	 * 小说目录
+	 * @param request
+	 * @param response
+	 */
 	private void list(HttpServletRequest request, HttpServletResponse response) {
 		//String parentIdStr = request.getParameter("type");
-		int  parentIdStr=5;
+		int  typeId=12;
+		//调用小说类别服务，查询所有小说类别
+
 		List<Section> sections = new ArrayList<>();
 
 		
-		Fiction fiction= Fiction.builder().type_id(parentIdStr).build();
-		List<Fiction> f = new ArrayList<>();
+		Fiction fiction= Fiction.builder().type_id(typeId).build();
+		List<Fiction> fictionList = new ArrayList<>();
 		try {
-			f = regionService.getById(fiction);
+			fictionList = regionService.getById(fiction);
+			sections=sectionService.getByTime();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		try {
-			  sections=sectionService.getByTime();
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 		request.setAttribute("sections", sections);
 
-		request.setAttribute("f", f);
+		request.setAttribute("fictionList", fictionList);
 		try {
 			request.getRequestDispatcher("/post/list2.jsp").forward(request, response);
 		} catch (Exception e) {

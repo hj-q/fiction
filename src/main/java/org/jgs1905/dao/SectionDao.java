@@ -63,7 +63,19 @@ public class SectionDao {
 		String sql = "select * from section  order by time desc LIMIT 30";
 		List<Section> result = qr.query(sql, new BeanListHandler<>(Section.class));
 		return result;		
-	}}
+	}
+
+	public List<Section> getNewSection() throws SQLException {
+		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
+		String sql = "SELECT type.`name`,section.fiction_name,section.section_name,fiction.author_name,section.time\n" +
+				"FROM fiction,section,type WHERE fiction.type_id = type.id AND section.fiction_id = fiction.id\n" +
+				"ORDER BY section.time DESC LIMIT 0,30;";
+		List<Section> newSectionList = qr.query(sql, new BeanListHandler<>(Section.class));
+
+		return newSectionList;
+	}
+
+}
 
 
 	
