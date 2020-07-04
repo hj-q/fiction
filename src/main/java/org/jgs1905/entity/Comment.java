@@ -17,13 +17,13 @@ import lombok.*;
 @Builder
 public class Comment {
 	
-	private Long id;
+	private int id;
 	
 	private String content;
 	
 	private Date create_time;
 	
-	private Long fiction_id;
+	private int fiction_id;
 	
 	private Long reader_id;
 	

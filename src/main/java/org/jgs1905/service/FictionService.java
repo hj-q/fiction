@@ -22,7 +22,7 @@ public class FictionService {
         return list;
     }
 
-    public Long getIdByBookName(String book_name) throws SQLException {
+    public int getIdByBookName(String book_name) throws SQLException {
         Fiction fiction = fictionDao.selectIdByBook_name(book_name);
         return fiction.getId();
     }

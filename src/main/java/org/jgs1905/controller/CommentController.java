@@ -108,7 +108,7 @@ public class CommentController extends HttpServlet {
 			return;
 		}
 		
-		Long id = Long.valueOf(idStr);
+		int id = Integer.valueOf(idStr);
 		Fiction fiction2 =Fiction.builder().id(id).build();
 		// 调用service，通过id获取一篇帖子
 		List<Fiction>  fictions= new ArrayList<Fiction>();
@@ -130,7 +130,7 @@ public class CommentController extends HttpServlet {
 			return;
 		}
 		
-		Long id = Long.valueOf(idStr);
+		int id = Integer.valueOf(idStr);
 		
 		// 调用service，通过id获取一篇帖子
 		Fiction fiction = null;

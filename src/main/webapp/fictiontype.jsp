@@ -81,166 +81,71 @@
             <div class="col-md-12 ">
                 <ul class="nav">
                     <li>
-                        <div class="col-md-4 book1">
-                            <div class="book-img">
-                                <a href="#">
-                                    <img src="static/img/951s.jpg" height="96" width="72"/>
-                                </a>
-                            </div>
-                            <dl>
-                                <dt>
-                                    <a href="#">伏天氏</a>
-                                </dt>
-                                <dd>
-                                    东方神州，有人皇立道统
-                                </dd>
-                                <br>
-                                <a href="#">净无痕</a>
-                            </dl>
+                      <c:forEach items="${newFictions}" end="2" var="fiction" varStatus="vs">
+                          <div class="col-md-4 book1">
+                              <div class="book-img">
+                                  <a href="#">
+                                      <img src="${fiction.image}" height="96" width="72"/>
+                                  </a>
+                              </div>
+                              <dl>
+                                  <dt>
+                                      <a href="#">${fiction.book_name}</a>
+                                  </dt>
+                                  <dd>
+                                      ${fiction.intro}
+                                  </dd>
+                                  <br>
+                                  <a href="#">${fiction.author_name}</a>
+                              </dl>
 
-                        </div>
-                        <div class="col-md-4 book1">
-                            <div class="book-img">
-                                <a href="#">
-                                    <img src="static/img/951s.jpg" height="96" width="72"/>
-                                </a>
-                            </div>
-                            <dl>
-                                <dt>
-                                    <a href="#">伏天氏</a>
-                                </dt>
-                                <dd>
-                                    东方神州，有人皇立道统
-                                </dd>
-                                <br>
-                                <a href="#">净无痕</a>
-                            </dl>
-                        </div>
-                        <div class="col-md-4 book1">
-                            <div class="book-img">
-                                <a href="#">
-                                    <img src="static/img/951s.jpg" height="96" width="72"/>
-                                </a>
-                            </div>
-                            <dl>
-                                <dt>
-                                    <a href="#">伏天氏</a>
-                                </dt>
-                                <dd>
-                                    东方神州，有人皇立道统
-                                </dd>
-                                <br>
-                                <a href="#">净无痕</a>
-                            </dl>
-                        </div>
+                          </div>
+                      </c:forEach>
+
                     </li>
                     <li>
-                        <div class="col-md-4 book1">
-                            <div class="book-img">
-                                <a href="#">
-                                    <img src="static/img/951s.jpg" height="96" width="72"/>
-                                </a>
-                            </div>
-                            <dl>
-                                <dt>
-                                    <a href="#">伏天氏</a>
-                                </dt>
-                                <dd>
-                                    东方神州，有人皇立道统
-                                </dd>
-                                <br>
-                                <a href="#">净无痕</a>
-                            </dl>
+                        <c:forEach items="${newFictions}" begin="3" end="5" var="fiction" varStatus="vs">
+                            <div class="col-md-4 book1">
+                                <div class="book-img">
+                                    <a href="#">
+                                        <img src="${fiction.image}" height="96" width="72"/>
+                                    </a>
+                                </div>
+                                <dl>
+                                    <dt>
+                                        <a href="#">${fiction.book_name}</a>
+                                    </dt>
+                                    <dd>
+                                            ${fiction.intro}
+                                    </dd>
+                                    <br>
+                                    <a href="#">${fiction.author_name}</a>
+                                </dl>
 
-                        </div>
-                        <div class="col-md-4 book1">
-                            <div class="book-img">
-                                <a href="#">
-                                    <img src="static/img/951s.jpg" height="96" width="72"/>
-                                </a>
                             </div>
-                            <dl>
-                                <dt>
-                                    <a href="#">伏天氏</a>
-                                </dt>
-                                <dd>
-                                    东方神州，有人皇立道统
-                                </dd>
-                                <br>
-                                <a href="#">净无痕</a>
-                            </dl>
-                        </div>
-                        <div class="col-md-4 book1">
-                            <div class="book-img">
-                                <a href="#">
-                                    <img src="static/img/951s.jpg" height="96" width="72"/>
-                                </a>
-                            </div>
-                            <dl>
-                                <dt>
-                                    <a href="#">伏天氏</a>
-                                </dt>
-                                <dd>
-                                    东方神州，有人皇立道统
-                                </dd>
-                                <br>
-                                <a href="#">净无痕</a>
-                            </dl>
-                        </div>
+                        </c:forEach>
                     </li>
                     <li>
-                        <div class="col-md-4 book1">
-                            <div class="book-img">
-                                <a href="#">
-                                    <img src="static/img/951s.jpg" height="96" width="72"/>
-                                </a>
-                            </div>
-                            <dl>
-                                <dt>
-                                    <a href="#">伏天氏</a>
-                                </dt>
-                                <dd>
-                                    东方神州，有人皇立道统
-                                </dd>
-                                <br>
-                                <a href="#">净无痕</a>
-                            </dl>
+                        <c:forEach items="${newFictions}" begin="6" end="8" var="fiction" varStatus="vs">
+                            <div class="col-md-4 book1">
+                                <div class="book-img">
+                                    <a href="#">
+                                        <img src="${fiction.image}" height="96" width="72"/>
+                                    </a>
+                                </div>
+                                <dl>
+                                    <dt>
+                                        <a href="#">${fiction.book_name}</a>
+                                    </dt>
+                                    <dd>
+                                            ${fiction.intro}
+                                    </dd>
+                                    <br>
+                                    <a href="#">${fiction.author_name}</a>
+                                </dl>
 
-                        </div>
-                        <div class="col-md-4 book1">
-                            <div class="book-img">
-                                <a href="#">
-                                    <img src="static/img/951s.jpg" height="96" width="72"/>
-                                </a>
                             </div>
-                            <dl>
-                                <dt>
-                                    <a href="#">伏天氏</a>
-                                </dt>
-                                <dd>
-                                    东方神州，有人皇立道统
-                                </dd>
-                                <br>
-                                <a href="#">净无痕</a>
-                            </dl>
-                        </div>
-                        <div class="col-md-4 book1">
-                            <div class="book-img">
-                                <a href="#">
-                                    <img src="static/img/951s.jpg" height="96" width="72"/>
-                                </a>
-                            </div>
-                            <dl>
-                                <dt>
-                                    <a href="#">伏天氏</a>
-                                </dt>
-                                <dd>
-                                    东方神州，有人皇立道统
-                                </dd>
-                                <br>
-                                <a href="#">净无痕</a>
-                            </dl>
-                        </div>
+                        </c:forEach>
                     </li>
                 </ul>
             </div>

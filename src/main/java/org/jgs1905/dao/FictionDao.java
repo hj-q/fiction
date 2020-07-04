@@ -49,7 +49,7 @@ public class FictionDao {
 			sbSql.append(" and book_name = ?");
 			params.add(function.getBook_name());
 		}
-		if (function.getId() != null) {
+		if (function.getId() != 0) {
 			sbSql.append(" and id = ?");
 			params.add(function.getId());
 		
@@ -60,7 +60,7 @@ public class FictionDao {
 
 	}
 
-	public Fiction findOneById(Long id) throws SQLException {
+	public Fiction findOneById(int id) throws SQLException {
 		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
 		String sql = "select fiction.*,type.name from fiction INNER JOIN type on fiction.type_id=type.id where fiction.id = ?";
 		Fiction result = qr.query(sql, new BeanHandler<>(Fiction.class), id);

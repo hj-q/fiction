@@ -21,7 +21,7 @@ public class CommentDao {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public List<Comment> findByPostId(Long postId) throws SQLException {
+	public List<Comment> findByPostId(int postId) throws SQLException {
 		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
 		
 		String sql = "SELECT `comments`.* FROM comments WHERE `comments`.fiction_id = ? ORDER BY `comments`.create_time DESC";

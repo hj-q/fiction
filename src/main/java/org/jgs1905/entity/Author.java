@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Author {
 	
-	private Long id;
+	private int id;
 	
 	private String  name;
 	

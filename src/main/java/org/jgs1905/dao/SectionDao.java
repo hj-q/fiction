@@ -38,11 +38,11 @@ public class SectionDao {
 			sbSql.append(" and fiction_name = ?");
 			params.add(function.getFiction_name());
 		}
-		if (function.getId() != null) {
+		if (function.getId() != 0) {
 			sbSql.append(" and id = ?");
 			params.add(function.getId());
 		}
-		if (function.getFiction_id() != null) {
+		if (function.getFiction_id() != 0) {
 			sbSql.append(" and fiction_id = ?");
 			params.add(function.getFiction_id());
 		}
@@ -73,6 +73,14 @@ public class SectionDao {
 		List<Section> newSectionList = qr.query(sql, new BeanListHandler<>(Section.class));
 
 		return newSectionList;
+	}
+	//通过小说的id查询小说的发行日期
+	public Section getMixTime(int id) throws SQLException {
+		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
+		String sql = "SELECT min(time), fiction_id from section WHERE section.fiction_id = ? GROUP BY section.fiction_id";
+		Section mixTime = qr.query(sql,new BeanHandler<>(Section.class),id);
+
+		return mixTime;
 	}
 
 }

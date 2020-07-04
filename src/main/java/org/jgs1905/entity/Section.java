@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Section {
 	
-	private Long id;
-	private Long fiction_id;
+	private int id;
+	private int fiction_id;
 
 	private String content;
 

@@ -43,4 +43,8 @@ private SectionDao sectionDao = new SectionDao();
 
 		return  sectionDao.getNewSection();
 	}
+
+	public Section getPublishTime(int id) throws SQLException {
+		return sectionDao.getMixTime(id);
+	}
 }

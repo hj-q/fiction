@@ -36,7 +36,8 @@
           <element id="library" level="project" name="Maven: cn.wanghaomiao:JsoupXpath:2.3.2" />
           <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.10.3" />
           <element id="library" level="project" name="Maven: org.antlr:antlr4-runtime:4.7" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.30" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-simple:1.7.30" />
           <element id="library" level="project" name="Maven: javax.mail:mail:1.4.7" />
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
           <element id="library" level="project" name="Maven: cn.afterturn:easypoi-base:3.2.0" />

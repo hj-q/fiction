@@ -22,7 +22,7 @@ public class CommentService {
 	public int add(Comment comment) throws SQLException {
 		return commentDao.insert(comment);
 	}
-	public Fiction getById(Long id) throws SQLException {
+	public Fiction getById(int id) throws SQLException {
 		Fiction fiction = fictionDao.findOneById(id);
 		List<Comment> comments = commentDao.findByPostId(fiction.getId());
 		fiction.setComments(comments);

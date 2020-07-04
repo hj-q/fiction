@@ -135,7 +135,7 @@ public class FictionController extends HttpServlet {
 
 	private void catalog(HttpServletRequest request, HttpServletResponse response) {
 		String book_name = request.getParameter("id");
-		Long id = Long.valueOf(book_name);
+		int id = Integer.valueOf(book_name);
 		Section section= Section.builder().fiction_id(id).build();
 		List<Section> sections = new ArrayList<>();
 		try {
@@ -165,7 +165,7 @@ public class FictionController extends HttpServlet {
 	 */
 	private void export(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String book_name = request.getParameter("id");
-		Long id = Long.valueOf(book_name);
+		int id = Integer.valueOf(book_name);
 		Fiction section= Fiction.builder().id(id).build();
 
 		// 1.查询所有数据
@@ -194,8 +194,8 @@ public class FictionController extends HttpServlet {
 	private void next(HttpServletRequest request, HttpServletResponse response) {
 		String book_name = request.getParameter("id");
 		String fiction_i = request.getParameter("fiction_id");
-		Long id = Long.valueOf(book_name);
-		Long fiction_id = Long.valueOf(fiction_i);
+		int id = Integer.valueOf(book_name);
+		int fiction_id = Integer.valueOf(fiction_i);
 		Section section= Section.builder().fiction_id(fiction_id)
 				.id(id)
 				.build();
@@ -216,7 +216,7 @@ public class FictionController extends HttpServlet {
 
 	private void detail(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String book_name = request.getParameter("id");
-		Long id = Long.valueOf(book_name);
+		int id = Integer.valueOf(book_name);
 		Fiction fiction = null;
 		try {
 			fiction = commentService.getById(id);
@@ -245,7 +245,7 @@ public class FictionController extends HttpServlet {
 	 */
 	private void content(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String book_name = request.getParameter("id");
-		Long id = Long.valueOf(book_name);
+		int id = Integer.valueOf(book_name);
 		Section section= Section.builder().id(id).build();
 		List<Section> sections = new ArrayList<>();
 		try {

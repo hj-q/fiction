@@ -1,5 +1,6 @@
 package org.jgs1905.entity;
 
+import java.util.Date;
 import java.util.List;
 
 import cn.afterturn.easypoi.excel.annotation.Excel;
@@ -17,9 +18,9 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Fiction {
 	
-	private Long id;
+	private int id;
 	
-	private Long author_id;
+	private int author_id;
 	@Excel(name = "简介")
 	private String intro;//简介
 	
@@ -30,6 +31,7 @@ public class Fiction {
 	@Excel(name = "作者")
 	private String  author_name;
 	private Long  hits;
+	private Date publishTime;
 	
 	private String  image;//小说封面图
 

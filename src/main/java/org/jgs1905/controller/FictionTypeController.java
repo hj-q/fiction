@@ -1,8 +1,11 @@
 package org.jgs1905.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.jgs1905.entity.Fiction;
+import org.jgs1905.entity.Section;
 import org.jgs1905.entity.Type;
 import org.jgs1905.service.FictionService;
+import org.jgs1905.service.SectionService;
 import org.jgs1905.service.TypeService;
 
 import javax.servlet.ServletException;
@@ -12,21 +15,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
+@Slf4j
 @WebServlet("/type")
 public class FictionTypeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String typeId = request.getParameter("typeId");
-//        System.out.println("typeId = "+typeId);
+        System.out.println("typeId = "+typeId);
         int type_id = Integer.valueOf(typeId);
         Type type = getType(type_id);
 
         request.setAttribute( "type",type);
         request.setAttribute("fictions",fictionList(type_id));
         request.setAttribute("fictionList",gitList(type_id));
-
+        request.setAttribute("newFictions", newFictions(type_id));
 
         request.getRequestDispatcher("fictiontype.jsp").forward(request,response);
     }
@@ -82,5 +89,52 @@ public class FictionTypeController extends HttpServlet {
             throwables.printStackTrace();
         }
         return gitList;
+    }
+
+    /**
+     * 获取最新上线的书
+     * @param typeId
+     * @return
+     */
+    public List<Fiction> newFictions(int typeId){
+//        System.out.println("---------------newFictions--------------------");
+        List<Fiction> fictions = gitList(typeId);
+//        System.out.println("========fictions=======>"+fictions);
+        SectionService sectionService = new SectionService();
+//        System.out.println("========sectionService=======>"+sectionService);
+        Date time = new Date();
+        for (Fiction fiction:fictions) {
+            log.info("========fiction=======>>",fiction);
+            try {
+                Section section = sectionService.getPublishTime(fiction.getId());
+//                System.out.println("========section=======>"+section);
+                if(section == null){
+                    continue;
+                }
+                time = section.getTime();
+
+                fiction.setPublishTime(time);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+
+        return fictions;
+    }
+
+    /**
+     * 时间格式化方法
+     * @param str
+     * @return
+     */
+    private Date formatTime(String str){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date time = new Date();
+        try {
+            time = simpleDateFormat.parse(str);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return  time;
     }
 }

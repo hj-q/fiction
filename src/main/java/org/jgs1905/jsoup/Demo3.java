@@ -1,28 +1,19 @@
 package org.jgs1905.jsoup;
 
-import java.awt.image.TileObserver;
 import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.SQLException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.RegexFileFilter;
 import org.jgs1905.dao.AuthorDao;
-import org.jgs1905.dao.FictionDao;
 import org.jgs1905.dao.SectionDao;
 import org.jgs1905.entity.Author;
 import org.jgs1905.entity.Fiction;
-import org.jgs1905.entity.Job;
 import org.jgs1905.entity.Section;
 import org.jgs1905.service.FictionService;
-import org.junit.Test;
 import org.seimicrawler.xpath.JXDocument;
 import org.seimicrawler.xpath.JXNode;
 
@@ -87,7 +78,7 @@ public class Demo3 {
 				Author author2 = Author.builder().name(author.asString()).build();
 				authorDao.insert(author2);
 				Author author3 = authorDao.selectIdByAuthor_name(author2);
-				Long author_id = author3.getId();
+				int author_id = author3.getId();
 				int type_id=0;
 				switch (type) {
 				case "玄幻":type_id=1;
@@ -126,7 +117,7 @@ public class Demo3 {
 						.hits(hits)
 						.build();
 				fictionService.addFiction(fiction);
-				Long fictionId=fictionService.getIdByBookName(name.asString());
+				int fictionId=fictionService.getIdByBookName(name.asString());
 				String two = getTwo("https:" + name2);
 				getThree(two,fictionId);
 				
@@ -144,7 +135,7 @@ public class Demo3 {
 			
 	}
 
-	private static void getThree(String two,Long fiction_id) throws Exception {
+	private static void getThree(String two,int fiction_id) throws Exception {
 		// 1.获取页面的dom实例
 		JXDocument doc = JXDocument.createByUrl(two);
 
@@ -158,7 +149,7 @@ public class Demo3 {
 		getOneChapter(two, name, author,fiction_id);
 	}
 
-	private static void getOneChapter(String url, String name, String author,Long fiction_id) throws Exception {
+	private static void getOneChapter(String url, String name, String author,int fiction_id) throws Exception {
 
 		JXDocument doc = JXDocument.createByUrl(url);
 		JXNode timeJxNode = doc.selNOne("//*[@class=\"j_updateTime\"]/text()");
