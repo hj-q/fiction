@@ -49,4 +49,5 @@ public class TypeService {
     public Type getTypeById(int id) throws SQLException {
     return typeDao.getTypeId(id);
     }
+
 }

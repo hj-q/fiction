@@ -32,9 +32,6 @@ public class IndexController extends HttpServlet {
 
         request.getRequestDispatcher("main.jsp").forward(request,response);
 
-
-
-
     }
 
     @Override

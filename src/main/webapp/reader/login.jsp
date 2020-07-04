@@ -54,6 +54,7 @@
                     <input class="form_input" type="text" id="captcha" name="captcha">
                     <button class="form_btn" type="button" value="Submit">登录</button>
                     <br>
+                    <p style="color:red;" id="message"></p>
                     <button class="form_toggle js-formToggle" type="button">去注册</button>
                 </form>
             </div>
@@ -64,7 +65,7 @@
     </div>
 
 </div>
-<script src="main.js"></script>
+<script src="../static/js/main.js"></script>
 <script type="text/javascript" src="${ bp }/static/js/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="${ bp }/static/js/jquery.validate.min.js"></script>
 <script type="text/javascript">
@@ -138,119 +139,7 @@
             return result;
         });
 
-        // 指定表单进行校验
-        $('#registForm').validate({
-            rules: {
-                nickname: {
-                    required: true,
-                    maxlength: 10,
-                },
-                username: {
-                    required: true,
-                    minlength: 6,
-                    maxlength: 20,
-                    numWordUline: true,
-                    usernameEnable: true
-                },
-                password: 'required',
-                repassword: {
-                    required: true,
-                    equalTo: "[name='password']"
-                }
-            },
-            messages: {
-                nickname: {
-                    required: "昵称不能为空",
-                    maxlength: "昵称不能超过10位",
-                },
-                username: {
-                    required: "用户名不能为空",
-                    minlength: "用户名不能少于6位",
-                    maxlength: "用户名不能超过20位",
-                    numWordUline: "用户名必须是数字字母下划线组合",
-                    usernameEnable: "该用户名已存在"
-                },
-                password: "密码不能为空",
-                repassword: {
-                    required: "重复密码不能为空",
-                    equalTo: "两次输入密码不一致"
-                }
-            }
-        });
 
-        // ajax获取所有省份
-        $.ajax({
-            url: '${bp}/region?method=province',
-            type: 'get',
-            dataType: 'json',
-            success: function(result) {
-                console.log(result);
-                let provinceList = result.data;
-                for (let province of provinceList) {
-                    $('#province').append($('<option value="'+province.id+'">'+province.name+'</option>'));
-                }
-            },
-            error: function() {
-                console.log("获取所有省份接口请求失败！");
-            }
-        });
-
-        // 当省份改变时，获取市级数据
-        $('#province').change(function() {
-
-            $('#city').html('<option value="0">--请选择--</option>');
-            $('#county').html('<option value="0">--请选择--</option>');
-
-            let parent_id = $('#province').val();
-            $.ajax({
-                url: '${bp}/region?method=child',
-                type: 'get',
-                data: {
-                    'parent_id': parent_id
-                },
-                dataType: 'json',
-                success: function(result) {
-                    console.log(result);
-                    let cityList = result.data;
-                    for (let city of cityList) {
-                        $('#city').append($('<option value="'+city.id+'">'+city.name+'</option>'));
-                    }
-                },
-                error: function() {
-                    console.log("获取所有城市接口请求失败！");
-                }
-            });
-
-
-        });
-
-        // 城市改变获取对应的区县数据
-        $('#city').change(function() {
-
-            $('#county').html('<option value="0">--请选择--</option>');
-
-            let parent_id = $('#city').val();
-            $.ajax({
-                url: '${bp}/region?method=child',
-                type: 'get',
-                data: {
-                    'parent_id': parent_id
-                },
-                dataType: 'json',
-                success: function(result) {
-                    console.log(result);
-                    let countyList = result.data;
-                    for (let county of countyList) {
-                        $('#county').append($('<option value="'+county.id+'">'+county.name+'</option>'));
-                    }
-                },
-                error: function() {
-                    console.log("获取所有区县接口请求失败！");
-                }
-            });
-
-
-        });
 
     })
 </script>

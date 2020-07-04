@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,10 +27,11 @@ public class FictionTypeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String typeId = request.getParameter("typeId");
-        System.out.println("typeId = "+typeId);
+//        System.out.println("typeId = "+typeId);
         int type_id = Integer.valueOf(typeId);
         Type type = getType(type_id);
 
+        request.setAttribute("typeList",navList());
         request.setAttribute( "type",type);
         request.setAttribute("fictions",fictionList(type_id));
         request.setAttribute("fictionList",gitList(type_id));
@@ -41,6 +43,21 @@ public class FictionTypeController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request,response);
+    }
+    /**
+     *主页导航栏的小说类别方法
+     * @return
+     */
+    private List<Type> navList(){
+        TypeService service = new TypeService();
+        List<Type> typeList = new ArrayList<>();
+        try {
+            typeList  = service.getTypes();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return typeList;
     }
 
     /**
@@ -104,7 +121,7 @@ public class FictionTypeController extends HttpServlet {
 //        System.out.println("========sectionService=======>"+sectionService);
         Date time = new Date();
         for (Fiction fiction:fictions) {
-            log.info("========fiction=======>>",fiction);
+//            log.info("========fiction=======>>",fiction);
             try {
                 Section section = sectionService.getPublishTime(fiction.getId());
 //                System.out.println("========section=======>"+section);
