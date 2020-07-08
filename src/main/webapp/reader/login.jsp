@@ -10,6 +10,14 @@
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="login.css">
+    <style>
+        label.error {
+            margin-left: 10px;
+            font-weight: bold;
+            color: #EA5200;
+            font-size: 2px;
+        }
+    </style>
 </head>
 <body>
 <div class="page">
@@ -17,15 +25,16 @@
     <div class="panel">
         <div class="panel_visible">
             <!--注册表单-->
-            <div class="panel_content">
+            <div class="panel_content" style="max-width: 240px">
                 <h1 class="panel_title">  注册 </h1>
                 <form class="form" action="${ bp }/user?method=regist" method="post" id="registForm" enctype="multipart/form-data">
+                    <label class="form_label" for="e_mail">邮箱</label>
+                    <input class="form_input" type="text" id="e_mail" name="e_mail">
                     <label class="form_label" for="username">用户名</label>
                     <input class="form_input" type="text" id="username" name="username">
                     <label class="form_label" for="password">密码</label>
                     <input class="form_input " type="password" id="password" name="password">
-                    <label class="form_label" for="email">邮箱</label>
-                    <input class="form_input" type="text" id="email" name="email">
+
 
                     <label class="form_label" >住址</label>
                     <!--                    <input class="form_input" type="text" id="address" name="address">-->
@@ -38,7 +47,7 @@
                     <select  name="region_id" id="county" style="max-width: 80px;overflow: hidden">
                         <option value="0">-请选择-</option>
                     </select>
-                    <button class="form_btn" type="button" value="Submit">注册</button>
+                    <button class="form_btn" type="submit" value="Submit">注册</button>
                     <button class="form_toggle js-formToggle" type="button">去登录</button>
                 </form>
             </div>
@@ -52,7 +61,7 @@
                     <input class="form_input " type="password" id="passwordIn" name="passwordIn">
                     <label class="form_label" for="captcha">验证码:<img style="padding-top: 10px" alt="?" title="看不清？点击换一张！" src="${ bp }/kaptcha" onclick="this.src=this.src" id="captcha-img" width="90"height="30"></label>
                     <input class="form_input" type="text" id="captcha" name="captcha">
-                    <button class="form_btn" type="button" value="Submit">登录</button>
+                    <button class="form_btn" type="submit" value="Submit">登录</button>
                     <br>
                     <p style="color:red;" id="message"></p>
                     <button class="form_toggle js-formToggle" type="button">去注册</button>
@@ -109,6 +118,10 @@
             let usernameRegx = /^\w+$/;
             return this.optional(element) || usernameRegx.test(value);
         });
+        $.validator.addMethod('emailRegx',function (value,element) {
+            let emailRegx = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+            return this.optional(element) || emailRegx.test(value);
+        })
 
         // 用户名重复性校验
         $.validator.addMethod('usernameEnable', function(value, element, param) {
@@ -139,7 +152,119 @@
             return result;
         });
 
+        // 指定表单进行校验
+        $('#registForm').validate({
+            rules: {
 
+                e_mail: {
+                    required:true,
+                    emailRegx:true,
+                },
+                username: {
+                    required: true,
+                    minlength: 4,
+                    maxlength: 20,
+                    numWordUline: true,
+                    usernameEnable: true
+                },
+                password:{
+                    required:true,
+                    minlength:6,
+                }
+
+            },
+            messages: {
+                e_mail:{
+                    required:"邮箱不能为空",
+                    emailRegx: "请输入正确的邮箱"
+                },
+                username: {
+                    required: "用户名不能为空",
+                    minlength: "用户名不能少于6位",
+                    maxlength: "用户名不能超过20位",
+                    numWordUline: "用户名必须是数字字母下划线组合",
+                    usernameEnable: "该用户名已存在"
+                },
+                password: {
+                    required:"密码不能为空",
+                    minlength:"密码不能少于六位",
+                }
+            }
+        });
+
+        // ajax获取所有省份
+        $.ajax({
+            url: '${bp}/region?method=province',
+            type: 'get',
+            dataType: 'json',
+            success: function(result) {
+                console.log(result);
+                let provinceList = result.data;
+                for (let province of provinceList) {
+                    $('#province').append($('<option value="'+province.id+'">'+province.name+'</option>'));
+                }
+            },
+            error: function() {
+                console.log("获取所有省份接口请求失败！");
+            }
+        });
+
+        // 当省份改变时，获取市级数据
+        $('#province').change(function() {
+
+            $('#city').html('<option value="0">--请选择--</option>');
+            $('#county').html('<option value="0">--请选择--</option>');
+
+            let parent_id = $('#province').val();
+            $.ajax({
+                url: '${bp}/region?method=child',
+                type: 'get',
+                data: {
+                    'parent_id': parent_id
+                },
+                dataType: 'json',
+                success: function(result) {
+                    console.log(result);
+                    let cityList = result.data;
+                    for (let city of cityList) {
+                        $('#city').append($('<option value="'+city.id+'">'+city.name+'</option>'));
+                    }
+                },
+                error: function() {
+                    console.log("获取所有城市接口请求失败！");
+                }
+            });
+
+
+        });
+
+        // 城市改变获取对应的区县数据
+        $('#city').change(function() {
+
+            $('#county').html('<option value="0">--请选择--</option>');
+
+            let parent_id = $('#city').val();
+            $.ajax({
+                url: '${bp}/region?method=child',
+                type: 'get',
+                data: {
+                    'parent_id': parent_id
+                },
+                dataType: 'json',
+                success: function(result) {
+                    console.log(result);
+                    let countyList = result.data;
+                    for (let county of countyList) {
+                        $('#county').append($('<option value="'+county.id+'">'+county.name+'</option>'));
+                    }
+                },
+                error: function() {
+                    console.log("获取所有区县接口请求失败！");
+                }
+            });
+
+
+        });
 
     })
 </script>

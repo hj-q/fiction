@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>天天小说主页</title>
     <link rel="stylesheet" href="static/bootstrap-3.3.7-dist/css/bootstrap.css">
     <link rel="stylesheet" href="static/css/index.css">
 </head>
@@ -17,7 +17,7 @@
 <div class="container" style="background-image: url(static/img/backroundimg.jpg);min-width: 1000px;">
     <div class="row">
         <ul class="nav nav-tabs">
-            <li><a href="">天天小说网</a></li>
+            <li><a href="javascript:location.reload();">天天小说网</a></li>
             <li class="col-md-3 col-md-offset-3">
                 <form action="#" method="post" class="navbar-form">
                     <input type="text" id="search1" class="Search">
@@ -26,9 +26,9 @@
                     </button>
                 </form>
             </li>
-            <li class="col-md-1 col-md-offset-2"><a href="#" id="login">登录</a></li>
-            <li class="col-md-1"><a href="#" id="register">注册</a></li>
-            <li class="col-md-2 col-md-offset-2" style="display:none;">
+            <li class="col-md-1 col-md-offset-2"><a href="${bp}/reader/login.jsp" id="login">登录</a></li>
+            <li class="col-md-1"><a href="${bp}/reader/login.jsp" id="register">注册</a></li>
+            <li class="col-md-2 col-md-offset-1" style="display:none;">
                 <img src="static/img/fuchuang2.png" alt="touxiang"><span>xxx欢迎您</span>
             </li>
         </ul>

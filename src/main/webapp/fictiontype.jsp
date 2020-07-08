@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>天天${type.name}</title>
     <link rel="stylesheet" href="static/bootstrap-3.3.7-dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="static/css/type.css">
     <style>
@@ -84,9 +84,9 @@
                 </form>
             </li>
             <li>
-                <a href="">登录</a>
+                <a href="${bp}/reader/login.jsp">登录</a>
             </li>
-            <li><a href="">注册</a></li>
+            <li><a href="${bp}/reader/login.jsp">注册</a></li>
             <li >
                 <a class="shelf" href="">
                     <img class="image" src="./static/img/bookshelf.jpg" width="20">我的书架

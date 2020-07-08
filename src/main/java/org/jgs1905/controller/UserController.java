@@ -326,6 +326,7 @@ public class UserController extends HttpServlet {
 			request.setAttribute("user", user);
 			request.getRequestDispatcher("/user/regist.jsp").forward(request, response);
 		} else {
+			request.setAttribute("message", "注册成功，请点击登录！");
 			response.sendRedirect(request.getContextPath() + "/user/login.jsp");
 		}
 		
