@@ -30,11 +30,11 @@
                 <form class="form" action="${ bp }/user?method=regist" method="post" id="registForm" enctype="multipart/form-data">
                     <label class="form_label" for="e_mail">邮箱</label>
                     <input class="form_input" type="text" id="e_mail" name="e_mail">
+
                     <label class="form_label" for="username">用户名</label>
                     <input class="form_input" type="text" id="username" name="username">
                     <label class="form_label" for="password">密码</label>
                     <input class="form_input " type="password" id="password" name="password">
-
 
                     <label class="form_label" >住址</label>
                     <!--                    <input class="form_input" type="text" id="address" name="address">-->
@@ -49,6 +49,7 @@
                     </select>
                     <button class="form_btn" type="submit" value="Submit">注册</button>
                     <button class="form_toggle js-formToggle" type="button">去登录</button>
+                    <p style="color:red;">${ message3 }</p>
                 </form>
             </div>
             <!--登录表单-->
@@ -56,11 +57,11 @@
                 <h1 class="panel_title">  登录 </h1>
                 <form class="form" id="loginForm">
                     <label class="form_label" for="usernameIn">用户名</label>
-                    <input class="form_input" type="text" id="usernameIn" name="usernameIn">
+                    <input class="form_input" type="text" id="usernameIn" name="username1">
                     <label class="form_label" for="passwordIn">密码</label>
-                    <input class="form_input " type="password" id="passwordIn" name="passwordIn">
+                    <input class="form_input " type="password" id="passwordIn" name="password1">
                     <label class="form_label" for="captcha">验证码:<img style="padding-top: 10px" alt="?" title="看不清？点击换一张！" src="${ bp }/kaptcha" onclick="this.src=this.src" id="captcha-img" width="90"height="30"></label>
-                    <input class="form_input" type="text" id="captcha" name="captcha">
+                    <input class="form_input" type="text" id="captcha" name="captcha1">
                     <button class="form_btn" type="submit" value="Submit">登录</button>
                     <br>
                     <p style="color:red;" id="message"></p>
@@ -86,16 +87,16 @@
                 url: '${ bp }/user?method=login',
                 type: 'post',
                 data: {
-                    'username': $('[name="username"]').val(),
-                    'password': $('[name="password"]').val(),
-                    'captcha': $('[name="captcha"]').val(),
+                    'username': $('[name="username1"]').val(),
+                    'password': $('[name="password1"]').val(),
+                    'captcha': $('[name="captcha1"]').val(),
                     'rememberMe': $('[name="rememberMe"]').val()
                 },
                 dataType: 'json',
                 success: function(result) {
                     console.log(result);
                     if (result.code == 200) {
-                        location.href = "${bp}/fiction?method=list";
+                        location.href = "${bp}/index";
                     } else {
                         $('#message').text(result.message);
                         $('#captcha-img').attr('src', $('#captcha-img').attr('src'));

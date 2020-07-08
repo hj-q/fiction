@@ -38,9 +38,8 @@ public class UserDao {
 	 */
 	public int insert(User user) throws SQLException {
 		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
-		String sql = "insert into reader(nickname, username, password,email,photo,region_id) value(?, ?, ?,?,?,?)";
-		
-		int result = qr.update(sql, user.getNickname(), user.getUsername(), user.getPassword(),user.getEmail(),user.getPhoto(),user.getRegion_id());
+		String sql = "insert into reader( username, password,email,region_id) value( ?, ?,?,?)";
+		int result = qr.update(sql,  user.getUsername(), user.getPassword(),user.getEmail(),user.getRegion_id());
 		
 		return result;
 	}

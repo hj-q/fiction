@@ -322,12 +322,12 @@ public class UserController extends HttpServlet {
 		
 		// 判断是否注册成功
 		if (result == 0) {
-			request.setAttribute("message", "注册失败，请重试！");
+			request.setAttribute("message3", "注册失败，请重试！");
 			request.setAttribute("user", user);
-			request.getRequestDispatcher("/user/regist.jsp").forward(request, response);
+			request.getRequestDispatcher("/reader/login.jsp").forward(request, response);
 		} else {
 			request.setAttribute("message", "注册成功，请点击登录！");
-			response.sendRedirect(request.getContextPath() + "/user/login.jsp");
+			response.sendRedirect(request.getContextPath() + "/reader/login.jsp");
 		}
 		
 	}
