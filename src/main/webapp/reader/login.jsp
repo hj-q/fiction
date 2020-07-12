@@ -25,7 +25,7 @@
     <div class="panel">
         <div class="panel_visible">
             <!--注册表单-->
-            <div class="panel_content" style="max-width: 240px">
+            <div class="panel_content" style="max-width: 245px">
                 <h1 class="panel_title">  注册 </h1>
                 <form class="form" action="${ bp }/user?method=regist" method="post" id="registForm" enctype="multipart/form-data">
                     <label class="form_label" for="e_mail">邮箱</label>

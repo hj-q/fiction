@@ -61,6 +61,9 @@ public class FictionController extends HttpServlet {
 		case "next":
 			next(request, response);
 			break;
+			case "last":
+				last(request, response);
+				break;
 		case "export":
 			export(request, response);
 			break;
@@ -74,6 +77,8 @@ public class FictionController extends HttpServlet {
 		}
 		
 	}
+
+
 
 	private void pager(HttpServletRequest request, HttpServletResponse response) {
 		// 获取分页参数
@@ -192,45 +197,82 @@ public class FictionController extends HttpServlet {
 	}
 
 	private void next(HttpServletRequest request, HttpServletResponse response) {
-		String book_name = request.getParameter("id");
-		String fiction_i = request.getParameter("fiction_id");
-		int id = Integer.valueOf(book_name);
-		int fiction_id = Integer.valueOf(fiction_i);
+		String sectionId = request.getParameter("id");
+		String fictionId = request.getParameter("fiction_id");
+		int id = Integer.valueOf(sectionId);
+		int fiction_id = Integer.valueOf(fictionId);
 		Section section= Section.builder().fiction_id(fiction_id)
 				.id(id)
 				.build();
-		List<Section> sections = new ArrayList<>();
+		Section section1 = new Section();
 		try {
-			  sections=sectionService.getNext(section);
+
+			section1=sectionService.getNext(section);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		request.setAttribute("sections", sections);
+		request.setAttribute("section", section1);
 		try {
-			request.getRequestDispatcher("/post/list4.jsp").forward(request, response);
+			request.getRequestDispatcher("content.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	private void detail(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		String book_name = request.getParameter("id");
-		int id = Integer.valueOf(book_name);
-		Fiction fiction = null;
+	/**
+	 *
+	 * @param request
+	 * @param response
+	 */
+	private void last(HttpServletRequest request, HttpServletResponse response) {
+
+		String sectionId = request.getParameter("id");
+		String fictionId = request.getParameter("fiction_id");
+		int id = Integer.valueOf(sectionId);
+		int fiction_id = Integer.valueOf(fictionId);
+		Section section= Section.builder().fiction_id(fiction_id)
+				.id(id)
+				.build();
+		Section section1 = new Section();
 		try {
-			fiction = commentService.getById(id);
+
+			section1=sectionService.getLast(section);
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+		request.setAttribute("section", section1);
+		try {
+			request.getRequestDispatcher("content.jsp").forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	private void detail(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String bookId = request.getParameter("id");
+		int id = Integer.valueOf(bookId);
+		Section section = new Section();
+		Fiction fiction = new Fiction();
+		List<Section> sectionList = new ArrayList<>();
+		try {
+			sectionList = sectionService.getSectionByFictionId(id);
+			section = sectionService.getNewSection(id);
+			fiction = commentService.getById(id);
+
+			if (section != null){
+				fiction.setSection(section);
+			}
+			if (sectionList != null){
+				fiction.setSectionList(sectionList);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		// 转发到页面
-		
-		
-		
 		request.setAttribute("fiction", fiction);
 		try {
-			request.getRequestDispatcher("/post/list3.jsp").forward(request, response);
+			request.getRequestDispatcher("/detail.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -244,22 +286,18 @@ public class FictionController extends HttpServlet {
 	 * @throws ServletException
 	 */
 	private void content(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		String book_name = request.getParameter("id");
-		int id = Integer.valueOf(book_name);
-		Section section= Section.builder().id(id).build();
-		List<Section> sections = new ArrayList<>();
+		String sectionId = request.getParameter("id");
+		int id = Integer.valueOf(sectionId);
 		try {
-			  sections=sectionService.getById(section);
+			Section section = sectionService.getOne(id);
+			request.setAttribute("section",section);
+		} catch (SQLException throwables) {
+			throwables.printStackTrace();
+		}
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		request.setAttribute("sections", sections);
-		try {
-			request.getRequestDispatcher("/post/list4.jsp").forward(request, response);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+
+		request.getRequestDispatcher("content.jsp").forward(request, response);
+
 	}
 
 	/**

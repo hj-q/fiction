@@ -90,7 +90,7 @@
                 <li>
                     <span class="s1">公告</span>
                     <span class="s2">
-							<a href="" target="_blank" rel="nofollow">
+							<a href="#" target="_blank" rel="nofollow">
 								发现章节未及时更新请联系我们
 							</a>
 						</span>
@@ -102,7 +102,7 @@
                     <li>
                         <span class="s1">[${fiction.name}]</span>
                         <span class="s2">
-							<a href="#">${fiction.book_name}</a>
+							<a href="${bp}/fiction?method=detail&id=${fiction.id}">${fiction.book_name}</a>
 						</span>
                         <span class="s5">${fiction.author_name}</span>
                     </li>
@@ -134,7 +134,7 @@
                             </div>
                             <dl>
                                 <dt>
-                                    <a href="#">${fiction.book_name}</a>
+                                    <a href="${bp}/fiction?method=detail&id=${fiction.id}">${fiction.book_name}</a>
                                 </dt>
                                 <dd>
                                         ${fiction.intro}
@@ -149,11 +149,12 @@
                         <c:forEach items="${type.fictionList}" var="fiction" varStatus="vs2">
                             <c:if test="${vs2.index != 0}">
                                 <c:if test="${vs2.index%2 != 0}">
-                                    <li class="col-md-4"><a href="#"> ${fiction.book_name}</a>/${fiction.author_name}
+                                    <li class="col-md-4">
+                                        <a href="${bp}/fiction?method=detail&id=${fiction.id}"> ${fiction.book_name}</a>/${fiction.author_name}
                                     </li>
                                 </c:if>
                                 <c:if test="${vs2.index%2 == 0}">
-                                    <li><a href="">${fiction.book_name}</a>/${fiction.author_name}</li>
+                                    <li><a href="${bp}/fiction?method=detail&id=${fiction.id}">${fiction.book_name}</a>/${fiction.author_name}</li>
                                 </c:if>
                             </c:if>
                         </c:forEach>
@@ -170,10 +171,10 @@
                     <li>
                         <span class="s1">[${section.name}]</span>
                         <span class="s2">
-							<a href="#" target="_blank">${section.fiction_name}</a>
+							<a href="${bp}/fiction?method=detail&id=${section.fiction_id}" target="_blank">${section.fiction_name}</a>
 						</span>
                         <span class="s3">
-							<a href="" target="_blank">${section.section_name}</a>
+							<a href="${bp}/fiction?method=content&id=${section.id}" target="_blank">${section.section_name}</a>
 						</span>
                         <span class="s4">${section.author_name}</span>
                     </li>
@@ -200,16 +201,6 @@
 
 <script type="text/javascript" src="static/js/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-<script type="text/javascript" src="static/js/jquery.validate.min.js"></script>
 
-<script>
-    $(function () {
-        $(".book-shelf").click(function () {
-            console.log("跳了")
-            location = "#";
-        });
-
-    });
-</script>
 </body>
 </html>

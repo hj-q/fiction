@@ -57,7 +57,7 @@
     <div class="row left-header" >
         <ul class="nav nav-pills" id="top-nav">
             <li>
-                <a href="#"><img src="./static/img/logo.png" alt="logo" height="25" width="80"></a>
+                <a href="${bp}/index"><img src="./static/img/logo.png" alt="logo" height="25" width="80"></a>
             </li>
             <c:forEach items="${typeList}" var="type" begin="0" end="6" varStatus="status">
 
@@ -88,7 +88,7 @@
             </li>
             <li><a href="${bp}/reader/login.jsp">注册</a></li>
             <li >
-                <a class="shelf" href="">
+                <a class="shelf" href="#">
                     <img class="image" src="./static/img/bookshelf.jpg" width="20">我的书架
                 </a>
             </li>
@@ -105,8 +105,8 @@
             </a>
         </div>
         <div class="search">
-            <form action="#" method="post">
-                <input type="text"/>
+            <form action="" method="post">
+                <input type="text" name="searchBook"/>
                 <button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-search"></span></button>
             </form>
 
@@ -118,7 +118,7 @@
         <div class="left-title">本周强推</div>
         <ul class="nav">
             <c:forEach items="${fictions}" var="fiction" end="10" varStatus="vs">
-                <li><a href="">${fiction.book_name}</a><span>${fiction.author_name}</span></li>
+                <li><a href="fiction?detail">${fiction.book_name}</a><span>${fiction.author_name}</span></li>
             </c:forEach>
 
         </ul>
@@ -127,7 +127,7 @@
         <ul class="nav nav-tabs">
             <c:forEach items="${fictions}" var="fiction" begin="5" end="9" varStatus="vs">
                 <li>
-                    <div class="imgbox ">
+                    <div class="img-box ">
                         <a href="#" alt="${fiction.book_name}"><img src="${fiction.image}" height="130" alt="${fiction.book_name}"/></a>
 
                     </div>

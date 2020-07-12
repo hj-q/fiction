@@ -51,10 +51,10 @@ public class SectionDao {
  
 	}
 
-	public List<Section> getNext(Section section) throws SQLException {
+	public Section getNext(Section section) throws SQLException {
 		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
 		String sql = "select * from section where  fiction_id=? and id >? order by id asc LIMIT 1";
-		List<Section> result = qr.query(sql, new BeanListHandler<>(Section.class), section.getFiction_id(),section.getId());
+		Section result = qr.query(sql, new BeanHandler<>(Section.class), section.getFiction_id(),section.getId());
 		return result;
 	}
 
@@ -67,7 +67,7 @@ public class SectionDao {
 
 	public List<Section> getNewSection() throws SQLException {
 		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
-		String sql = "SELECT type.`name`,section.fiction_name,section.section_name,fiction.author_name,section.time\n" +
+		String sql = "SELECT type.`name`,section.*,fiction.id\n" +
 				"FROM fiction,section,type WHERE fiction.type_id = type.id AND section.fiction_id = fiction.id\n" +
 				"ORDER BY section.time DESC LIMIT 0,30;";
 		List<Section> newSectionList = qr.query(sql, new BeanListHandler<>(Section.class));
@@ -83,6 +83,35 @@ public class SectionDao {
 		return mixTime;
 	}
 
+    public Section getNewSection(Integer id) throws SQLException {
+		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
+		String sql = "SELECT t1.* from section as t1 where t1.fiction_id = ? ORDER BY t1.time desc limit 0,1";
+		Section newSection = qr.query(sql,new BeanHandler<>(Section.class),id);
+
+		return newSection;
+    }
+
+    public List<Section> getSectionByFictionId(Integer id) throws SQLException {
+		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
+		String sql = "SELECT * FROM section as t1 where t1.fiction_id = ?";
+		List<Section> sectionList = qr.query(sql,new BeanListHandler<>(Section.class),id);
+
+		return  sectionList;
+	}
+
+    public Section selectOne(int id) throws SQLException {
+		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
+		String sql = "select * from section where id = ?";
+		Section section = qr.query(sql, new BeanHandler<>(Section.class), id);
+		return  section;
+	}
+
+	public Section getLast(Section section) throws SQLException {
+		QueryRunner qr = new QueryRunner(DataSourceUtil.getDataSource());
+		String sql = "select * from section where  fiction_id=? and id < ? order by id DESC LIMIT 0,1";
+		Section result = qr.query(sql, new BeanHandler<>(Section.class), section.getFiction_id(),section.getId());
+		return result;
+	}
 }
 
 

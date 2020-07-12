@@ -37,6 +37,10 @@ public class Fiction {
 
 	private List<Comment> comments;
 
+	private Section section;
+
+	private List<Section> sectionList;
+
 	
 	
 }

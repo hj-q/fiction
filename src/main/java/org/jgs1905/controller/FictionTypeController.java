@@ -36,7 +36,6 @@ public class FictionTypeController extends HttpServlet {
         request.setAttribute("fictions",fictionList(type_id));
         request.setAttribute("fictionList",gitList(type_id));
         request.setAttribute("newFictions", newFictions(type_id));
-
         request.getRequestDispatcher("fictiontype.jsp").forward(request,response);
     }
 

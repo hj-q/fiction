@@ -25,9 +25,9 @@ private SectionDao sectionDao = new SectionDao();
 
 
 
-	public List<Section> getNext(Section section) throws SQLException {
-		List<Section> list=sectionDao.getNext(section);
-		return list;
+	public Section getNext(Section s) throws SQLException {
+		Section section=sectionDao.getNext(s);
+		return section;
 	}
 
 
@@ -46,5 +46,23 @@ private SectionDao sectionDao = new SectionDao();
 
 	public Section getPublishTime(int id) throws SQLException {
 		return sectionDao.getMixTime(id);
+	}
+
+	public Section getNewSection(Integer id) throws SQLException {
+
+		return  sectionDao.getNewSection(id);
+	}
+	public List<Section> getSectionByFictionId(Integer id) throws SQLException {
+
+		return  sectionDao.getSectionByFictionId(id);
+	}
+
+	public Section getOne(int id) throws SQLException {
+
+		return sectionDao.selectOne(id);
+	}
+
+	public Section getLast(Section section) throws SQLException {
+		return sectionDao.getLast(section);
 	}
 }

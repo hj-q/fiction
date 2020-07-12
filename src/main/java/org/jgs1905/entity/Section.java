@@ -27,6 +27,5 @@ public class Section {
 	private String  section_name;
 	private String  fiction_name;
 	private Date  time;
-	
 
 }

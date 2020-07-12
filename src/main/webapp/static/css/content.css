@@ -1,0 +1,95 @@
+.container-fluid a{
+    color: white;
+}
+.left-header{
+    display: inline-block;
+    margin-left: 1.25rem;
+}
+.right-header{
+    display: inline-block;
+    margin-top: 1.25rem;
+    margin-right: 2%;
+    margin-left: 12rem;
+}
+.right-header>ul>li{
+    margin-right: 0.625rem;
+
+}
+.right-header>ul>li>form>input{
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-top-color: #97dcfe;
+    border-left-color: #97dcfe;
+    border-right-color:#97dcfe;
+    border-bottom-color:whitesmoke;
+    background-color: transparent;
+    margin-top: 8px;
+}
+.shelf{
+    margin-bottom: 5px;
+}
+#top-nav a:hover{
+    color: black;
+}
+#top-nav2 a:hover{
+    color: black;
+}
+.leftNav{
+    border: 1px solid rgb(216,216,216);
+    background-color: rgb(248,243,233);
+    width: 60px;
+    margin-left: 100px;
+    position: relative;
+    top: 10px;
+
+}
+.leftNav-active{
+    position: fixed;
+
+}
+.leftNav li{
+    border-bottom: 1px #81675f solid;
+}
+.leftNav-box1{
+    flex: inherit;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+}
+.leftNav a{
+    text-decoration-line: none;
+
+}
+.leftNav-box1:hover {
+    color: red;
+    cursor: pointer;
+}
+.path-nav{
+    margin-top: 20px;
+    width: 200px;
+}
+.path-nav>ol{
+    background-color: white;
+}
+.content{
+    border: 1px solid rgb(216,216,216);
+    position: relative;
+    padding: 60px 64px;
+    font-size: large;
+    width: 800px;
+    background-color: rgb(248,243,233);
+    margin-left: 5px;
+    left: 180px;
+    top: -200px;
+}
+.foot-box{
+    border: 1px solid rgb(216,216,216);
+    position: relative;
+    margin-top: -150px;
+    height: 50px;
+    width: 70%;
+    margin-left: 180px;
+    background-color: rgb(248,243,233);
+    padding-top: 15px;
+}
