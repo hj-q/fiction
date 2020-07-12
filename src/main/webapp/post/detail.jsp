@@ -26,7 +26,7 @@
 </style>
 </head>
 <body>
-	<%@ include file="../common/header.jsp" %>
+	
 
 	<div id="pageContent">
 	
@@ -48,7 +48,7 @@
 		
 		<br><br>
 		
-		<div id="commentList">
+		<%-- <div id="commentList">
 		<c:forEach items="${ fictions }" var="fiction" varStatus="vs">
 				
 			<form action="${ bp }/comment?method=add&fiction_id=${ fiction.id  }" method="post">
@@ -70,7 +70,7 @@
 				<p align="right">${ comment.nickname }--<fmt:formatDate value="${ comment.create_time }" pattern="yyyy年MM月dd日 HH点mm分ss秒"/></p>
 				<hr>
 			</c:forEach>
-		</div>
+		</div> --%>
 		
 	</div>
 	<script type="text/javascript" src="${ bp }/static/js/jquery-3.5.1.js"></script>

@@ -142,7 +142,7 @@ public class CommentController extends HttpServlet {
 		
 		// 转发到页面
 		request.setAttribute("fiction", fiction);
-		request.getRequestDispatcher("/post/detail.jsp").forward(request, response);
+		request.getRequestDispatcher("/detail.jsp").forward(request, response);
 		
 	}
 

@@ -8,6 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
+<script type="text/javascript" charset="utf-8" src="${ bp }/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="${ bp }/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="${ bp }/ueditor/lang/zh-cn/zh-cn.js"></script>
 <head>
     <title>小说详情页</title>
     <link rel="stylesheet" href="static/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
@@ -98,10 +101,54 @@
             </div>
         </div>
     </div>
-
+<div id="commentList">
+				
+			<form action="${ bp }/comment?method=add&fiction_id=${ fiction.id  }" method="post">
+				<p>内容：</p>
+				<p>
+				<script id="editor" type="text/plain" style="width:100%;height:500px;"></script>
+				<input type="hidden" name="content" id="conten">
+				<input type="hidden" name="contentTxt" id="contentTxs">
+			</p>
+				<p>
+					<input type="submit" value="发表评论" id="submit">
+					<span>${ message }</span>
+				</p>
+			</form>
+			<hr>
+			<c:forEach items="${ fiction.comments }" var="comment" varStatus="vs">
+				<p>${ comment.content }</p>
+				<p align="right">${ comment.nickname }--<fmt:formatDate value="${ comment.create_time }" pattern="yyyy年MM月dd日 HH点mm分ss秒"/></p>
+				<hr>
+			</c:forEach>
+		</div>
+		
 </div>
 
 <script type="text/javascript" src="static/js/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="./static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+
+
+	<script type="text/javascript">
+		$(function() {
+			
+			
+			// 实例化ue编辑器
+			var ue = UE.getEditor('editor');
+			
+			$('#submit').click(function() {
+				// 将富文本存放到content隐藏域
+				let content = ue.getContent();
+				$('#conten').val(content);
+				
+				let contentTxt = ue.getContentTxt();
+				$('#contentTx').val(contentTxt);
+			});
+		})
+		
+		$('#export').click(function() {
+			location.href = "${bp}/fiction?method=export&id=${fiction.id}";
+		})
+	</script>
 </body>
 </html>
