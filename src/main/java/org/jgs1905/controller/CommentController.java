@@ -75,6 +75,7 @@ public class CommentController extends HttpServlet {
 		
 		// 设置userId
 		User onlineUser = (User)request.getSession().getAttribute("onlineUser");
+		
 		comment.setReader_id(onlineUser.getId());
 		comment.setNickname(onlineUser.getNickname());
 		
