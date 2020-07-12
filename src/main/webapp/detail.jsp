@@ -5,12 +5,10 @@
   Time: 13:47
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<script type="text/javascript" charset="utf-8" src="${ bp }/ueditor/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="${ bp }/ueditor/ueditor.all.min.js"> </script>
-<script type="text/javascript" charset="utf-8" src="${ bp }/ueditor/lang/zh-cn/zh-cn.js"></script>
 <head>
     <title>小说详情页</title>
     <link rel="stylesheet" href="static/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
@@ -21,7 +19,7 @@
     <div class="row left-header" id="top-nav">
         <ul class="nav nav-pills" >
             <li>
-                <a href="#"><img src="static/img/logo.png" alt="logo" height="25px" width="80px"></a>
+                <a href="index"><img src="static/img/logo.png" alt="logo" height="25px" width="80px"></a>
             </li>
             <li><a href="type?typeId=1">玄幻</a></li>
             <li><a href="type?typeId=2">奇幻</a></li>
@@ -118,7 +116,7 @@
 			<hr>
 			<c:forEach items="${ fiction.comments }" var="comment" varStatus="vs">
 				<p>${ comment.content }</p>
-				<p align="right">${ comment.nickname }--<fmt:formatDate value="${ comment.create_time }" pattern="yyyy年MM月dd日 HH点mm分ss秒"/></p>
+				<p align="right">${ comment.nickname }<fmt:formatDate value="${ comment.create_time }" pattern="yyyy年MM月dd日 HH点mm分ss秒"/></p>
 				<hr>
 			</c:forEach>
 		</div>
@@ -127,12 +125,11 @@
 
 <script type="text/javascript" src="static/js/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="./static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-
-
+<script type="text/javascript" charset="utf-8" src="${ bp }/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="${ bp }/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="${ bp }/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script type="text/javascript">
 		$(function() {
-			
-			
 			// 实例化ue编辑器
 			var ue = UE.getEditor('editor');
 			
@@ -145,7 +142,6 @@
 				$('#contentTx').val(contentTxt);
 			});
 		})
-		
 		$('#export').click(function() {
 			location.href = "${bp}/fiction?method=export&id=${fiction.id}";
 		})

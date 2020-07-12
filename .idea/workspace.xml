@@ -20,12 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f56eb3e1-aad2-41dd-823c-a010a4f13a1f" name="Default Changelist" comment="阅读小说页面">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/upload/ueditor/image/20200712/1594542544536008568.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/content.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/content.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/fictiontype.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/fictiontype.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/css/type.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/type.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/reader/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/reader/login.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +63,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -97,7 +96,7 @@
       <workItem from="1594514068936" duration="1930000" />
       <workItem from="1594518956316" duration="2088000" />
       <workItem from="1594521630696" duration="6306000" />
-      <workItem from="1594531741016" duration="6424000" />
+      <workItem from="1594531741016" duration="11022000" />
     </task>
     <task id="LOCAL-00001" summary="阅读小说页面">
       <created>1594531838750</created>
@@ -106,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594531838750</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="阅读小说页面">
+      <created>1594542188259</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1594542188259</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,6 +130,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="阅读小说页面" />
     <option name="LAST_COMMIT_MESSAGE" value="阅读小说页面" />
   </component>
@@ -136,38 +143,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="497" y="213" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1594533338438" />
-    <state width="1342" height="97" key="GridCell.Tab.0.bottom" timestamp="1594536944125">
+    <state width="1493" height="118" key="GridCell.Tab.0.bottom" timestamp="1594545151315">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1322" height="345" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594176688622" />
-    <state width="1342" height="97" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594536944125" />
-    <state width="1342" height="97" key="GridCell.Tab.0.center" timestamp="1594536944125">
+    <state width="1493" height="118" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594545151315" />
+    <state width="1493" height="118" key="GridCell.Tab.0.center" timestamp="1594545151315">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1322" height="345" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1594176688622" />
-    <state width="1342" height="97" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594536944125" />
-    <state width="1342" height="97" key="GridCell.Tab.0.left" timestamp="1594536944125">
+    <state width="1493" height="118" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594545151315" />
+    <state width="1493" height="118" key="GridCell.Tab.0.left" timestamp="1594545151314">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1322" height="345" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1594176688622" />
-    <state width="1342" height="97" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594536944125" />
-    <state width="1342" height="97" key="GridCell.Tab.0.right" timestamp="1594536944125">
+    <state width="1493" height="118" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594545151314" />
+    <state width="1493" height="118" key="GridCell.Tab.0.right" timestamp="1594545151315">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1322" height="345" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1594176688622" />
-    <state width="1342" height="97" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1594536944125" />
+    <state width="1493" height="118" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1594545151315" />
     <state x="292" y="38" key="SettingsEditor" timestamp="1594535258226">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="292" y="38" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1594535258226" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1594531841850">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1594542190353">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1594531841850" />
-    <state x="478" y="200" key="git4idea.merge.GitPullDialog" timestamp="1594360657171">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1594542190353" />
+    <state x="478" y="200" key="git4idea.merge.GitPullDialog" timestamp="1594543116270">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="478" y="200" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1594360657171" />
+    <state x="478" y="200" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1594543116270" />
     <state x="381" y="178" key="run.anything.popup" timestamp="1594364589138">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

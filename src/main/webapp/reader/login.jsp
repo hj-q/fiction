@@ -64,8 +64,9 @@
                     <input class="form_input" type="text" id="captcha" name="captcha1">
                     <button class="form_btn" type="submit" value="Submit">登录</button>
                     <br>
-                    <p style="color:red;" id="message"></p>
                     <button class="form_toggle js-formToggle" type="button">去注册</button>
+                    <p style="color:red;" id="message"></p>
+
                 </form>
             </div>
         </div>
