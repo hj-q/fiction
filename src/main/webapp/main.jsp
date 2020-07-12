@@ -187,7 +187,7 @@
                 <c:forEach items="${newFictions}" var="newfiction" varStatus="vs2">
                     <li>
                         <span class="s1">[${newfiction.name}]</span>
-                        <span class="s2"><a href="">${newfiction.book_name}</a></span>
+                        <span class="s2"><a href="${bp}/fiction?method=detail&id=${newfiction.id}">${newfiction.book_name}</a></span>
                         <span class="s5">${newfiction.author_name}</span>
                     </li>
                 </c:forEach>

@@ -100,7 +100,7 @@
 <div class="header container-fluid">
     <div class="container">
         <div class="logo">
-            <a href="">
+            <a href="#">
                 天天${type.name}
             </a>
         </div>
@@ -118,7 +118,7 @@
         <div class="left-title">本周强推</div>
         <ul class="nav">
             <c:forEach items="${fictions}" var="fiction" end="10" varStatus="vs">
-                <li><a href="fiction?detail">${fiction.book_name}</a><span>${fiction.author_name}</span></li>
+                <li><a href="fiction?method=detail&id=${fiction.id}">${fiction.book_name}</a><span>${fiction.author_name}</span></li>
             </c:forEach>
 
         </ul>
@@ -128,12 +128,12 @@
             <c:forEach items="${fictions}" var="fiction" begin="5" end="9" varStatus="vs">
                 <li>
                     <div class="img-box ">
-                        <a href="#" alt="${fiction.book_name}"><img src="${fiction.image}" height="130" alt="${fiction.book_name}"/></a>
+                        <a href="fiction?method=detail&id=${fiction.id}" alt="${fiction.book_name}"><img src="${fiction.image}" height="130" alt="${fiction.book_name}"/></a>
 
                     </div>
                     <dl>
                         <dt>
-                            <a href="#">${fiction.book_name}</a>
+                            <a href="fiction?method=detail&id=${fiction.id}">${fiction.book_name}</a>
                         </dt>
                         <dd>
                             ${fiction.intro}
@@ -151,7 +151,7 @@
         </div>
         <ul class="nav">
            <c:forEach items="${fictionList}" var="fiction" end="10" varStatus="vs">
-               <li><a href="">${fiction.book_name}</a><span>${fiction.author_name}</span></li>
+               <li><a href="fiction?method=detail&id=${fiction.id}">${fiction.book_name}</a><span>${fiction.author_name}</span></li>
            </c:forEach>
 
         </ul>
@@ -166,13 +166,13 @@
                       <c:forEach items="${newFictions}" end="2" var="fiction" varStatus="vs">
                           <div class="col-md-4 book1">
                               <div class="book-img">
-                                  <a href="#">
+                                  <a href="fiction?method=detail&id=${fiction.id}">
                                       <img src="${fiction.image}" height="96" width="72"/>
                                   </a>
                               </div>
                               <dl>
                                   <dt>
-                                      <a href="#">${fiction.book_name}</a>
+                                      <a href="fiction?method=detail&id=${fiction.id}">${fiction.book_name}</a>
                                   </dt>
                                   <dd>
                                       ${fiction.intro}

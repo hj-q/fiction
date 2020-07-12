@@ -18,22 +18,23 @@
     <div class="row left-header" id="top-nav">
         <ul class="nav nav-pills" >
             <li>
-                <a href="${bp}/index"><img src="static/img/logo.png" alt="logo" height="25px" width="80px"></a>
+                <a href="#"><img src="static/img/logo.png" alt="logo" height="25px" width="80px"></a>
             </li>
-            <li><a href="">玄幻</a></li>
-            <li><a href="">奇幻</a></li>
-            <li><a href="">武侠</a></li>
-            <li><a href="">仙侠</a></li>
-            <li><a href="">都市</a></li>
-            <li><a href="">军事</a></li>
-            <li><a href="">游戏</a></li>
+            <li><a href="type?typeId=1">玄幻</a></li>
+            <li><a href="type?typeId=2">奇幻</a></li>
+            <li><a href="type?typeId=3">武侠</a></li>
+            <li><a href="type?typeId=4">仙侠</a></li>
+            <li><a href="type?typeId=5">都市</a></li>
+            <li><a href="type?typeId=6">军事</a></li>
+            <li><a href="type?typeId=8">游戏</a></li>
             <li>
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     更多 <span class="caret"></span>
                     <ul class="dropdown-menu">
-                        <li><a href="">科幻</a></li>
-                        <li><a href="">悬疑</a></li>
-                        <li><a href="">女生</a></li>
+                        <li><a href="type?typeId=6">历史</a></li>
+                        <li><a href="type?typeId=9">科幻</a></li>
+                        <li><a href="type?typeId=10">悬疑</a></li>
+                        <li><a href="type?typeId=11">其他</a></li>
                     </ul>
                 </a>
             </li>

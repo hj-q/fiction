@@ -59,8 +59,8 @@
 <div class="container">
     <div class="path-nav">
         <ol class="breadcrumb ">
-            <li><a href="#">首页</a></li>
-            <li><a href="#">玄幻</a></li>
+            <li><a href="index">首页</a></li>
+            <li><a href="">玄幻</a></li>
             <li class="active">伏天氏</li>
         </ol>
 

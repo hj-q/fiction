@@ -3,7 +3,7 @@ body{
 	margin: 0;
 }
 .header{
-	/*background-image: url(../img/xuanhuan.jfif);*/
+	background-image: url(../img/xuanhuan.jfif);
 	background-size:100% 100%;
 	min-width: 1000px;
 	margin: 0 auto;
